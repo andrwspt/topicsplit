@@ -29,7 +29,8 @@ MIT — do whatever you want with it.
 ## Support the work
 This is free. If it saves you time, the easiest way to say thanks is **$1**:
 
-- **GitHub Sponsors** (enable on the repo → "Sponsor" button, any amount from $1/mo)
-- Or tip via Ko-fi / PayPal once the links are added to `.github/FUNDING.yml`
+- **Ko-fi** → https://ko-fi.com/andrwspt (one-time or monthly, any amount from $1)
+- **PayPal.me** → https://paypal.me/AndrewSupit (one-time tip)
+- (GitHub Sponsors available too once enabled on the repo)
 
 Every dollar goes back into building more free, private, offline tools.
