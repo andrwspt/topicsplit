@@ -2,6 +2,8 @@
 
 A tiny, **offline** tool that groups pasted text into topic segments by lexical
 cohesion — no server, no API key, no tracking. Open `index.html` in any browser
+**👉 Live demo:** https://andrwspt.github.io/topicsplit/
+
 and it just works.
 
 It was built from a simple principle: **split where meaning shifts, not where a
@@ -30,7 +32,7 @@ MIT — do whatever you want with it.
 This is free. If it saves you time, the easiest way to say thanks is **$1**:
 
 - **Ko-fi** → https://ko-fi.com/andrwspt (one-time or monthly, any amount from $1)
-- **PayPal.me** → https://paypal.me/AndrewSupit (one-time tip)
+- **PayPal.me** → https://paypal.me/andrwspt (one-time tip)
 - (GitHub Sponsors available too once enabled on the repo)
 
 Every dollar goes back into building more free, private, offline tools.
