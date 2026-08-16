@@ -24,8 +24,13 @@
   .meta { color:var(--muted); font-size:12px; margin-top:8px; }
   .seg { border-left:3px solid var(--accent); padding:4px 0 4px 10px; margin:10px 0; }
   .seg b { color:var(--accent); font-size:12px; letter-spacing:.5px; }
-  footer { padding:14px 22px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+  footer { padding:14px 22px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; text-align:center; }
   a { color:var(--accent2); }
+  .cta { margin-top:10px; display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; }
+  .cta a { display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border-radius:6px; text-decoration:none; font-weight:600; font-size:13px; transition:transform .15s; }
+  .cta a:hover { transform:scale(1.05); }
+  .cta .kofi { background:#ff5e5b; color:#fff; }
+  .cta .paypal { background:#003087; color:#fff; }
 </style>
 </head>
 <body>
@@ -60,7 +65,11 @@
 </div>
 
 <footer>
-  Built by Andrew · free to use · if it saves you time, support the work via the GitHub Sponsors button on the repo.
+  <div>Free & open-source. If TopicSplit saves you time, a $1 tip keeps the tools coming:</div>
+  <div class="cta">
+    <a href="https://ko-fi.com/andrwspt" target="_blank" rel="noopener" class="kofi">☕ Ko-fi</a>
+    <a href="https://paypal.me/andrwspt" target="_blank" rel="noopener" class="paypal">💳 PayPal</a>
+  </div>
 </footer>
 
 <script>
