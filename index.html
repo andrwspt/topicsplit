@@ -164,7 +164,6 @@ $("sample").onclick = ()=>{
   $("tipbar").style.display="none";
 };
 $("copy").onclick = ()=>{ navigator.clipboard.writeText($("out").textContent); $("stat").textContent="Markdown copied."; };
-$("share").onclick = ()=>{ const u="https://andrwspt.github.io/topicsplit/"; if(navigator.share){navigator.share({title:"TopicSplit",url:u});}else{navigator.clipboard.writeText(u);$("stat").textContent="Link copied!";} };
 $("share").onclick = ()=>{ const u="https://andrwspt.github.io/topicsplit/"; if(navigator.share){navigator.share({title:"TopicSplit — split text by meaning",url:u});}else{navigator.clipboard.writeText(u);$("stat").textContent="Link copied!";} };
 $("dl").onclick = ()=>{
   const blob=new Blob([$("out").textContent],{type:"text/markdown"});
