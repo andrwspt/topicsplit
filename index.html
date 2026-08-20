@@ -84,6 +84,7 @@
     </div>
     <div class="controls">
       <button id="sample" class="sec" style="font-size:12px;padding:4px 10px;">📋 Try with sample text</button>
+      <button id="share" class="sec" style="font-size:12px;padding:4px 10px;">🔗 Share</button>
     </div>
     <div class="meta" id="stat">Ready.</div>
     <div class="tip-bar" id="tipbar">❤️ Found this useful? <a href="https://ko-fi.com/andrwspt" target="_blank" rel="noopener">Tip $1 on Ko-fi</a> — helps me build more free tools like this.</div>
@@ -163,6 +164,8 @@ $("sample").onclick = ()=>{
   $("tipbar").style.display="none";
 };
 $("copy").onclick = ()=>{ navigator.clipboard.writeText($("out").textContent); $("stat").textContent="Markdown copied."; };
+$("share").onclick = ()=>{ const u="https://andrwspt.github.io/topicsplit/"; if(navigator.share){navigator.share({title:"TopicSplit",url:u});}else{navigator.clipboard.writeText(u);$("stat").textContent="Link copied!";} };
+$("share").onclick = ()=>{ const u="https://andrwspt.github.io/topicsplit/"; if(navigator.share){navigator.share({title:"TopicSplit — split text by meaning",url:u});}else{navigator.clipboard.writeText(u);$("stat").textContent="Link copied!";} };
 $("dl").onclick = ()=>{
   const blob=new Blob([$("out").textContent],{type:"text/markdown"});
   const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="topicsplit.md"; a.click();
