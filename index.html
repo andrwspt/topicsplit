@@ -13,9 +13,9 @@
 <meta name="twitter:description" content="Free offline semantic text grouper. No server, no API key, no tracking.">
 <title>TopicSplit — offline semantic text grouper</title>
 <style>
-  :root { --bg:#0e1116; --panel:#161b22; --line:#2b3340; --txt:#e6edf3; --muted:#8b98a5; --accent:#4dd0a7; --accent2:#58a6ff; }
+  :root { --bg:#0e1116; --panel:#161b22; --line:#2b3340; --txt:#e6edf3; --muted:#8b98a5; --accent:#4dd0a7; --accent2:#58a6ff; --kofi:#ff5e5b; --paypal:#003087; }
   * { box-sizing: border-box; }
-  body { margin:0; font:15px/1.5 system-ui,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--txt); }
+  body { margin:0; font:15px/1.5 system-ui,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--txt); padding-bottom:70px; }
   header { padding:18px 22px; border-bottom:1px solid var(--line); display:flex; align-items:center; gap:14px; }
   header h1 { font-size:18px; margin:0; }
   header .tag { color:var(--muted); font-size:13px; }
@@ -30,30 +30,41 @@
   button { background:var(--accent); color:#04221a; border:0; border-radius:8px; padding:9px 14px; font-weight:600; cursor:pointer; }
   button.sec { background:transparent; color:var(--accent2); border:1px solid var(--accent2); }
   .meta { color:var(--muted); font-size:12px; margin-top:8px; }
-  .seg { border-left:3px solid var(--accent); padding:4px 0 4px 10px; margin:10px 0; }
-  .seg b { color:var(--accent); font-size:12px; letter-spacing:.5px; }
   footer { padding:14px 22px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; text-align:center; }
   a { color:var(--accent2); }
   .cta { margin-top:10px; display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; }
   .cta a { display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border-radius:6px; text-decoration:none; font-weight:600; font-size:13px; transition:transform .15s; }
   .cta a:hover { transform:scale(1.05); }
-  .cta .kofi { background:#ff5e5b; color:#fff; }
-  .cta .paypal { background:#003087; color:#fff; }
+  .cta .kofi { background:var(--kofi); color:#fff; }
+  .cta .paypal { background:var(--paypal); color:#fff; }
   .hero { padding:24px 22px 16px; text-align:center; }
   .hero h2 { font-size:22px; margin:0 0 6px; }
   .hero p { color:var(--muted); font-size:14px; margin:0 auto 16px; max-width:540px; }
   .badges { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
   .badge { background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:5px 12px; font-size:12px; color:var(--muted); }
   .badge strong { color:var(--accent); }
-  .tip-bar { margin-top:8px; padding:8px 12px; background:#1a2332; border:1px solid var(--accent); border-radius:8px; font-size:12px; color:var(--txt); display:none; }
+  .tip-bar { margin-top:8px; padding:10px 14px; background:#1a2332; border:1px solid var(--accent); border-radius:8px; font-size:13px; color:var(--txt); display:none; animation:slideIn .3s ease; }
   .tip-bar a { color:var(--accent); font-weight:600; text-decoration:none; }
   .tip-bar a:hover { text-decoration:underline; }
+  @keyframes slideIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
+  .sticky-cta { position:fixed; bottom:0; left:0; right:0; background:var(--panel); border-top:1px solid var(--line); padding:10px 22px; display:flex; align-items:center; justify-content:center; gap:16px; z-index:100; box-shadow:0 -4px 20px rgba(0,0,0,.4); }
+  .sticky-cta .msg { font-size:13px; color:var(--muted); }
+  .sticky-cta .msg strong { color:var(--accent); }
+  .sticky-cta a { display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border-radius:6px; text-decoration:none; font-weight:600; font-size:13px; transition:transform .15s; }
+  .sticky-cta a:hover { transform:scale(1.05); }
+  .sticky-cta .kofi { background:var(--kofi); color:#fff; }
+  .sticky-cta .paypal { background:var(--paypal); color:#fff; }
+  .pro-badge { display:inline-block; background:var(--accent2); color:#04241a; font-size:10px; font-weight:700; padding:2px 6px; border-radius:4px; margin-left:6px; vertical-align:middle; }
+  .social-proof { display:flex; justify-content:center; gap:16px; margin:12px 0; flex-wrap:wrap; }
+  .social-proof span { font-size:12px; color:var(--muted); }
+  .social-proof strong { color:var(--txt); }
 </style>
 </head>
 <body>
 <header>
   <h1>TopicSplit</h1>
   <span class="tag">Offline semantic text grouper · no server · no tracking</span>
+  <a href="#pro" class="pro-badge" style="text-decoration:none;">PRO CLI →</a>
 </header>
 
 <div class="hero">
@@ -63,6 +74,11 @@
     <span class="badge">🔒 <strong>100% offline</strong> — nothing leaves your browser</span>
     <span class="badge">⚡ <strong>Zero install</strong> — just paste and split</span>
     <span class="badge">💰 <strong>Free</strong> — MIT licensed, forever</span>
+  </div>
+  <div class="social-proof">
+    <span>⭐ <strong>1</strong> GitHub star</span>
+    <span>👀 <strong>17</strong> demo views</span>
+    <span>🔒 <strong>0</strong> bytes sent to server</span>
   </div>
 </div>
 
@@ -96,6 +112,16 @@
   </div>
 </div>
 
+<div id="pro" style="padding:16px;">
+  <div class="panel" style="max-width:600px;margin:0 auto;text-align:center;">
+    <h3 style="margin-top:0;">Need to batch-process files?</h3>
+    <p style="color:var(--muted);font-size:14px;">TopicSplit Pro is a CLI tool that splits entire folders of articles in one command. Same algorithm, same privacy — just for power users.</p>
+    <div class="cta" style="margin-top:12px;">
+      <a href="https://github.com/andrwspt/topicsplit/tree/master/pro" target="_blank" rel="noopener" class="sec" style="color:var(--accent2);border-color:var(--accent2);">View Pro on GitHub →</a>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div>Free & open-source. If TopicSplit saves you time, a $1 tip keeps the tools coming:</div>
   <div class="cta">
@@ -103,6 +129,12 @@
     <a href="https://paypal.me/andrwspt" target="_blank" rel="noopener" class="paypal">💳 PayPal</a>
   </div>
 </footer>
+
+<div class="sticky-cta">
+  <span class="msg">Found TopicSplit useful? <strong>$1 keeps it alive →</strong></span>
+  <a href="https://ko-fi.com/andrwspt" target="_blank" rel="noopener" class="kofi">☕ Ko-fi</a>
+  <a href="https://paypal.me/andrwspt" target="_blank" rel="noopener" class="paypal">💳 PayPal</a>
+</div>
 
 <script>
 const STOP = new Set(("a an the and or but if then of to in on at by for with as is are was were be been being this that these those it its he she they we you i me my your our their from into about over under between which who what when where why how not no do does did have has had will would can could should may might must also than so such only own same each more most other some any all both few many one two three first second").split(" "));
