@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] — 2026-08-20
+
+### Added
+- **"Try with sample text" button** — one-click demo without pasting anything
+- **Post-split tip bar** — appears after a successful split with direct Ko-fi link
+- Conversion-optimized copy in DISTRIBUTION.md for all platforms
+
+### Improved
+- Lower friction for first-time visitors (no "what do I paste?" barrier)
+- Tip prompt appears at the value-perception moment (right after split)
+- Updated distribution copy to match v1.2.0 features
+
 ## [1.1.0] — 2026-08-19
 
 ### Added
