@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="How to break down a long article into clean atomic notes - the offline, private way. Free tool for Obsidian, Logseq, and PKM workflows.">
+<meta property="og:title" content="How to Break Down a Long Article Into Atomic Notes (Offline, Free)">
+<meta property="og:description" content="Stop pasting walls of text into your notes. This free offline tool splits any article into clean topic segments by meaning.">
+<meta property="og:type" content="article">
+<title>How to Break Down a Long Article Into Atomic Notes - Free Offline Tool</title>
+<style>
+:root{--bg:#0b0e13;--panel:#141922;--line:#232a36;--txt:#e6edf3;--muted:#7d8ba1;--accent:#4dd0a7;--accent2:#58a6ff;}
+*{box-sizing:border-box;}
+body{margin:0;font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt);}
+header{padding:30px 24px 20px;text-align:center;border-bottom:1px solid var(--line);}
+header h1{margin:0;font-size:26px;font-weight:700;max-width:700px;margin-left:auto;margin-right:auto;}
+header p{color:var(--muted);font-size:15px;margin:12px auto 0;max-width:600px;}
+.wrap{max-width:720px;margin:0 auto;padding:30px 24px;}
+article h2{margin:28px 0 10px;font-size:20px;}
+article h3{margin:20px 0 8px;font-size:17px;color:var(--accent);}
+article p{margin:0 0 14px;color:var(--txt);}
+article ul,article ol{margin:0 0 14px;padding-left:24px;}
+article li{margin-bottom:6px;}
+article code{background:var(--panel);padding:2px 6px;border-radius:4px;font-size:14px;}
+.cta-box{background:var(--panel);border:1px solid var(--accent);border-radius:10px;padding:20px;margin:24px 0;text-align:center;}
+.cta-box h3{margin-top:0;color:var(--accent);}
+.cta-box p{color:var(--muted);margin-bottom:16px;}
+.cta-box a{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;margin:4px;transition:transform .15s;}
+.cta-box a:hover{transform:scale(1.05);}
+.cta-box .demo{background:var(--accent);color:#04241a;}
+.cta-box .kofi{background:#ff5e5b;color:#fff;}
+.cta-box .paypal{background:#003087;color:#fff;}
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+@media(max-width:600px){.comparison{grid-template-columns:1fr;}}
+.comparison>div{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;}
+.comparison h4{margin:0 0 8px;font-size:15px;}
+.comparison .bad h4{color:#f85149;}
+.comparison .good h4{color:var(--accent);}
+.comparison ul{margin:0;padding-left:18px;font-size:14px;color:var(--muted);}
+footer{padding:20px 24px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:13px;}
+footer a{color:var(--accent2);}
+.back{display:inline-block;margin-bottom:20px;color:var(--accent2);text-decoration:none;font-size:14px;}
+</style>
+</head>
+<body>
+<header>
+  <h1>How to Break Down a Long Article Into Atomic Notes (Without Losing Your Mind)</h1>
+  <p>The offline, private workflow that turns walls of text into clean, searchable notes - in 30 seconds.</p>
+</header>
+<div class="wrap">
+<article>
+<a href="https://andrwspt.github.io/" class="back">← Back to all tools</a>
+<h2>The problem: you read something great, but your notes are a mess</h2>
+<p>You finish a 3,000-word article. You want to save the key ideas into <strong>Obsidian</strong>, <strong>Logseq</strong>, or <strong>Notion</strong>. But the article does not have clean section breaks - it is one long wall of text.</p>
+<p>So you either:</p>
+<ul>
+<li>Copy-paste the whole thing into one giant note (useless - you will never find anything)</li>
+<li>Manually highlight and split it into sections (takes 10-15 minutes per article)</li>
+<li>Pay for an AI summarizer that ships your text to a server (and starts building a profile on you)</li>
+</ul>
+<p>None of these are good. There is a better way.</p>
+<h2>The solution: split by meaning, not by word count</h2>
+<p><strong>TopicSplit</strong> is a free, offline tool that reads any pasted text and finds where the <em>meaning shifts</em> - then cuts there. It is not a summarizer. It is a <strong>semantic segmenter</strong>.</p>
+<p>You paste a messy article, transcript, or meeting notes. It outputs clean markdown with <code>### Topic 1</code>, <code>### Topic 2</code>, etc. Each segment is a self-contained chunk of meaning.</p>
+<div class="cta-box">
+<h3>Try it now - free, no install, no tracking</h3>
+<p>Paste any text. Get clean topic segments in one click.</p>
+<a href="https://andrwspt.github.io/topicsplit/" target="_blank" rel="noopener" class="demo">Open TopicSplit →</a>
+</div>
+<h2>How it works (30 seconds)</h2>
+<ol>
+<li><strong>Paste</strong> any article, transcript, or notes into the left panel.</li>
+<li><strong>Drag the Sensitivity slider</strong> - higher = more segments, lower = fewer.</li>
+<li><strong>Click "Split into topics"</strong> - get clean markdown on the right.</li>
+<li><strong>Copy or download</strong> - straight into Obsidian, Logseq, or Notion.</li>
+</ol>
+<h2>Why this beats the alternatives</h2>
+<div class="comparison">
+<div class="bad">
+<h4>Manual splitting</h4>
+<ul>
+<li>Takes 10-15 min per article</li>
+<li>Inconsistent - depends on your energy</li>
+<li>Easy to miss key transitions</li>
+<li>Does not scale</li>
+</ul>
+</div>
+<div class="good">
+<h4>TopicSplit</h4>
+<ul>
+<li>Takes 5 seconds</li>
+<li>Same quality every time</li>
+<li>Finds shifts you would miss</li>
+<li>Works on any length of text</li>
+</ul>
+</div>
+</div>
+<h2>Built for PKM workflows</h2>
+<p>If you practice <strong>Zettelkasten</strong>, <strong>atomic note-taking</strong>, or any <strong>Personal Knowledge Management</strong> system, TopicSplit fits naturally:</p>
+<ul>
+<li><strong>Obsidian users:</strong> Download the markdown directly into your vault</li>
+<li><strong>Logseq users:</strong> Split journal entries or research into topic blocks</li>
+<li><strong>Notion users:</strong> Turn meeting notes into organized sections</li>
+<li><strong>Researchers:</strong> Segment interview transcripts by theme</li>
+<li><strong>Writers:</strong> Structure long-form content into clear sections</li>
+</ul>
+<h2>100% offline - your data never leaves your browser</h2>
+<p>TopicSplit runs entirely client-side. There is no server, no API key, no tracking. Your text is processed locally and never transmitted. This is not a privacy policy - it is an architectural guarantee.</p>
+<h2>Free forever, open source</h2>
+<p>TopicSplit is <strong>MIT-licensed</strong>. You can use it, modify it, share it, or build on it. No paywalls, no feature tiers, no "pro version."</p>
+<p>If it saved you time, a $1 tip keeps the next tool coming:</p>
+<div class="cta-box">
+<h3>Support free, private tools</h3>
+<p>Every dollar goes back into building more offline, tracking-free tools.</p>
+<a href="https://ko-fi.com/andrwspt" target="_blank" rel="noopener" class="kofi">☕ Tip $1 on Ko-fi</a>
+<a href="https://paypal.me/andrwspt" target="_blank" rel="noopener" class="paypal">💳 Tip $1 on PayPal</a>
+</div>
+<h2>FAQ</h2>
+<h3>Does it work in languages other than English?</h3>
+<p>Yes - the segmentation algorithm is language-agnostic. It works on any text where topic shifts are marked by vocabulary changes.</p>
+<h3>What is the longest text I can paste?</h3>
+<p>There is no hard limit. It has been tested on transcripts up to 50,000 words. Performance depends on your browser.</p>
+<h3>Do I need to install anything?</h3>
+<p>No. Open <a href="https://andrwspt.github.io/topicsplit/" target="_blank" rel="noopener">the live demo</a> in any browser. Or download index.html and open it locally - works offline.</p>
+<h3>Can I use this for commercial work?</h3>
+<p>Yes. MIT license means you can use it for anything - personal, commercial, whatever.</p>
+<h3>Is there an API?</h3>
+<p>No API. That is the point. If you want to integrate it into a pipeline, download the source and run it locally.</p>
+</article>
+</div>
+<footer>
+  <a href="https://andrwspt.github.io/">Free Tools by Andrew</a> · 
+  <a href="https://github.com/andrwspt/topicsplit">GitHub</a> · 
+  <a href="https://ko-fi.com/andrwspt">Ko-fi</a>
+</footer>
+</body>
+</html>
