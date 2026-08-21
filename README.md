@@ -20,7 +20,15 @@ server. TopicSplit runs entirely on your machine.
 4. Click **Split into topics** → get clean `### Topic N` markdown.
 5. **Copy markdown** or **Download .md** straight into Obsidian / Logseq.
 
-## What's new in v1.3
+## What's new in v1.5
+
+- **JSON-LD structured data** — SoftwareApplication + FAQPage schema for rich search results
+- **Auto-load sample text** — first visitors see the tool working instantly without pasting
+- **Testimonial section** — social proof above the fold
+- **FAQ schema markup** — question/answer structured data for Google featured snippets
+- **New content pages** — [blog guide](blog.html) and [semantic splitter explainer](semantic-splitter.html) for organic search traffic
+
+## What's new in v1.4
 
 - **Share button** — spread the word with one click
 - **Social proof badges** — see why people trust TopicSplit
