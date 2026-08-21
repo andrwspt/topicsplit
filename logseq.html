@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TopicSplit for Logseq — split journal entries and articles into topic-based blocks by meaning. Free, offline, no tracking.">
+<meta property="og:title" content="TopicSplit for Logseq — Split Text Into Topic Blocks">
+<meta property="og:description" content="Free offline tool that splits journal entries and articles into topic-based blocks by meaning. Perfect for Logseq workflows.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://andrwspt.github.io/topicsplit/logseq.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TopicSplit for Logseq">
+<meta name="twitter:description" content="Split text into topic blocks by meaning. Free, offline, no tracking.">
+<title>TopicSplit for Logseq — Split Journal Entries Into Topic Blocks</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "TopicSplit",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free offline semantic text grouper for Logseq. Split journal entries into topic blocks by meaning.",
+  "url": "https://andrwspt.github.io/topicsplit/logseq.html"
+}
+</script>
+<style>
+:root{--bg:#0e1116;--panel:#161b22;--line:#2b3340;--txt:#e6edf3;--muted:#8b98a5;--accent:#4dd0a7;--accent2:#58a6ff;--kofi:#ff5e5b;--paypal:#003087;--blue:#3375e0;}
+*{box-sizing:border-box;}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt);}
+header{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;}
+header .logo{font-size:20px;font-weight:700;color:var(--accent);text-decoration:none;}
+header a{color:var(--accent2);text-decoration:none;font-size:14px;}
+.hero{padding:80px 24px 60px;text-align:center;background:linear-gradient(180deg,#131820 0%,var(--bg) 100%);}
+.hero h1{font-size:42px;margin:0 0 16px;line-height:1.2;max-width:700px;margin-left:auto;margin-right:auto;}
+.hero h1 span{color:var(--accent);}
+.hero p{color:var(--muted);font-size:18px;margin:0 auto 32px;max-width:600px;}
+.hero-cta{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:600;font-size:16px;transition:transform .15s,box-shadow .15s;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3);}
+.btn-primary{background:var(--accent);color:#04221a;}
+.btn-secondary{background:transparent;color:var(--accent2);border:2px solid var(--accent2);}
+.btn-kofi{background:var(--kofi);color:#fff;}
+.btn-paypal{background:var(--paypal);color:#fff;}
+.logseq-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(51,117,224,.15);border:1px solid var(--blue);border-radius:20px;padding:6px 14px;font-size:13px;color:var(--blue);margin-bottom:24px;}
+.logseq-badge svg{width:16px;height:16px;fill:var(--blue);}
+.how{padding:60px 24px;max-width:900px;margin:0 auto;}
+.how h2{text-align:center;font-size:28px;margin:0 0 40px;}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px;text-align:center;}
+.step .num{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--accent);color:#04221a;font-weight:700;font-size:16px;margin-bottom:12px;}
+.step h3{font-size:16px;margin:0 0 8px;}
+.step p{font-size:14px;color:var(--muted);margin:0;}
+.demo-section{padding:60px 24px;text-align:center;background:linear-gradient(180deg,var(--bg) 0%,#131820 100%);}
+.demo-section h2{font-size:28px;margin:0 0 8px;}
+.demo-section p{color:var(--muted);margin:0 0 32px;}
+.demo-frame{max-width:900px;margin:0 auto;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.4);}
+.demo-frame iframe{width:100%;height:500px;border:0;}
+.why{padding:60px 24px;max-width:900px;margin:0 auto;}
+.why h2{text-align:center;font-size:28px;margin:0 0 40px;}
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+@media(max-width:600px){.comparison{grid-template-columns:1fr;}}
+.comparison>div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px;}
+.comparison h3{margin:0 0 12px;font-size:18px;}
+.comparison .bad h3{color:#f85149;}
+.comparison .good h3{color:var(--accent);}
+.comparison ul{margin:0;padding-left:20px;font-size:14px;color:var(--muted);}
+.comparison li{margin-bottom:8px;}
+.cta-section{padding:60px 24px;text-align:center;background:linear-gradient(180deg,#131820 0%,var(--bg) 100%);}
+.cta-section h2{font-size:28px;margin:0 0 12px;}
+.cta-section p{color:var(--muted);margin:0 0 32px;font-size:16px;}
+footer{padding:20px 24px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:13px;}
+footer a{color:var(--accent2);}
+</style>
+</head>
+<body>
+<header>
+  <a href="https://andrwspt.github.io/topicsplit/" class="logo">TopicSplit</a>
+  <a href="https://github.com/andrwspt/topicsplit">GitHub →</a>
+</header>
+
+<section class="hero">
+  <div class="logseq-badge">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+    Built for Logseq
+  </div>
+  <h1>Split journal entries into <span>topic-based blocks</span> — by meaning</h1>
+  <p>Paste a messy journal entry or article. Get clean <code>### Topic N</code> markdown ready for your Logseq journal. No server, no API key, no tracking.</p>
+  <div class="hero-cta">
+    <a href="https://andrwspt.github.io/topicsplit/" target="_blank" rel="noopener" class="btn btn-primary">Try it free →</a>
+    <a href="https://github.com/andrwspt/topicsplit" target="_blank" rel="noopener" class="btn btn-secondary">View on GitHub</a>
+  </div>
+</section>
+
+<section class="how">
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="num">1</div>
+      <h3>Paste</h3>
+      <p>Copy any journal entry, article, or notes and paste into TopicSplit</p>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <h3>Adjust</h3>
+      <p>Drag the sensitivity slider — higher = more segments, lower = fewer</p>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <h3>Split</h3>
+      <p>Click "Split into topics" — get clean markdown segments</p>
+    </div>
+    <div class="step">
+      <div class="num">4</div>
+      <h3>Import</h3>
+      <p>Copy or download — paste straight into your Logseq journal</p>
+    </div>
+  </div>
+</section>
+
+<section class="demo-section">
+  <h2>See it in action</h2>
+  <p>Paste any text below and watch it split into clean topic segments.</p>
+  <div class="demo-frame">
+    <iframe src="https://andrwspt.github.io/topicsplit/" title="TopicSplit demo"></iframe>
+  </div>
+</section>
+
+<section class="why">
+  <h2>Why Logseq users love TopicSplit</h2>
+  <div class="comparison">
+    <div class="bad">
+      <h3>Manual splitting</h3>
+      <ul>
+        <li>Takes 10-15 minutes per entry</li>
+        <li>Inconsistent section breaks</li>
+        <li>Easy to miss topic shifts</li>
+        <li>Frustrating and tedious</li>
+      </ul>
+    </div>
+    <div class="good">
+      <h3>TopicSplit</h3>
+      <ul>
+        <li>Splits in under 5 seconds</li>
+        <li>Finds where meaning actually shifts</li>
+        <li>Consistent, objective algorithm</li>
+        <li>100% offline — your text never leaves your browser</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Ready to speed up your workflow?</h2>
+  <p>TopicSplit is free and MIT licensed. If it saves you time, a $1 tip keeps the tools coming.</p>
+  <div class="hero-cta">
+    <a href="https://ko-fi.com/andrwspt" target="_blank" rel="noopener" class="btn btn-kofi">☕ Tip $1 on Ko-fi</a>
+    <a href="https://paypal.me/andrwspt" target="_blank" rel="noopener" class="btn btn-paypal">💳 Tip $1 on PayPal</a>
+  </div>
+</section>
+
+<footer>
+  <a href="https://andrwspt.github.io/topicsplit/">TopicSplit</a> |
+  <a href="https://github.com/andrwspt/topicsplit">GitHub</a> |
+  <a href="https://ko-fi.com/andrwspt">Ko-fi</a> |
+  <a href="https://paypal.me/andrwspt">PayPal</a>
+</footer>
+</body>
+</html>
