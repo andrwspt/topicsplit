@@ -7,10 +7,22 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://andrwspt.github.io/topicsplit/landing.html</loc>
+    <loc>https://andrwspt.github.io/topicsplit/obsidian.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://andrwspt.github.io/topicsplit/logseq.html</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://andrwspt.github.io/topicsplit/landing.html</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://andrwspt.github.io/topicsplit/blog.html</loc>
