@@ -1,0 +1,232 @@
+import os
+
+path = r'C:\Users\evana\Documents\ai-workspace\topicsplit-repo\index.html'
+
+html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TopicSplit — free offline semantic text grouper. Split pasted text into topic segments by meaning, not word count. Perfect for Obsidian, Logseq, Notion. No server, no API key, no tracking.">
+<meta property="og:title" content="TopicSplit — split text by meaning, offline">
+<meta property="og:description" content="Free offline semantic text grouper. Paste any article, transcript, or notes → get clean topic segments. No server, no API key, no tracking.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://andrwspt.github.io/topicsplit/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TopicSplit — split text by meaning, offline">
+<meta name="twitter:description" content="Free offline semantic text grouper. No server, no API key, no tracking.">
+<title>TopicSplit — offline semantic text grouper</title>
+<style>
+  :root { --bg:#0e1116; --panel:#161b22; --line:#2b3340; --txt:#e6edf3; --muted:#8b98a5; --accent:#4dd0a7; --accent2:#58a6ff; --kofi:#ff5e5b; --paypal:#003087; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:15px/1.5 system-ui,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--txt); padding-bottom:70px; }
+  header { padding:18px 22px; border-bottom:1px solid var(--line); display:flex; align-items:center; gap:14px; }
+  header h1 { font-size:18px; margin:0; }
+  header .tag { color:var(--muted); font-size:13px; }
+  .wrap { display:grid; grid-template-columns:1fr 1fr; gap:14px; padding:16px; }
+  @media(max-width:820px){ .wrap{ grid-template-columns:1fr; } }
+  .panel { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px; }
+  textarea, .out { width:100%; min-height:320px; background:#0b0e13; color:var(--txt); border:1px solid var(--line); border-radius:8px; padding:12px; font:14px/1.55 ui-monospace,Menlo,Consolas,monospace; resize:vertical; }
+  .out { overflow:auto; white-space:pre-wrap; }
+  .controls { display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin:10px 0 4px; }
+  label { color:var(--muted); font-size:13px; display:flex; align-items:center; gap:8px; }
+  input[type=range]{ accent-color:var(--accent); }
+  button { background:var(--accent); color:#04221a; border:0; border-radius:8px; padding:9px 14px; font-weight:600; cursor:pointer; transition:transform .15s; }
+  button:hover { transform:scale(1.03); }
+  button.sec { background:transparent; color:var(--accent2); border:1px solid var(--accent2); }
+  .meta { color:var(--muted); font-size:12px; margin-top:8px; }
+  footer { padding:14px 22px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; text-align:center; }
+  a { color:var(--accent2); }
+  .cta { margin-top:10px; display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; }
+  .cta a { display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border-radius:6px; text-decoration:none; font-weight:600; font-size:13px; transition:transform .15s; }
+  .cta a:hover { transform:scale(1.05); }
+  .cta .kofi { background:var(--kofi); color:#fff; }
+  .cta .paypal { background:var(--paypal); color:#fff; }
+  .hero { padding:24px 22px 16px; text-align:center; }
+  .hero h2 { font-size:22px; margin:0 0 6px; }
+  .hero p { color:var(--muted); font-size:14px; margin:0 auto 16px; max-width:540px; }
+  .badges { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
+  .badge { background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:5px 12px; font-size:12px; color:var(--muted); }
+  .badge strong { color:var(--accent); }
+  .tip-bar { margin-top:8px; padding:10px 14px; background:#1a2332; border:1px solid var(--accent); border-radius:8px; font-size:13px; color:var(--txt); display:none; animation:slideIn .3s ease; }
+  .tip-bar a { color:var(--accent); font-weight:600; text-decoration:none; }
+  .tip-bar a:hover { text-decoration:underline; }
+  @keyframes slideIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
+  .sticky-cta { position:fixed; bottom:0; left:0; right:0; background:var(--panel); border-top:1px solid var(--line); padding:10px 22px; display:flex; align-items:center; justify-content:center; gap:16px; z-index:100; box-shadow:0 -4px 20px rgba(0,0,0,.4); }
+  .sticky-cta .msg { font-size:13px; color:var(--muted); }
+  .sticky-cta .msg strong { color:var(--accent); }
+  .sticky-cta a { display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border-radius:6px; text-decoration:none; font-weight:600; font-size:13px; transition:transform .15s; }
+  .sticky-cta a:hover { transform:scale(1.05); }
+  .sticky-cta .kofi { background:var(--kofi); color:#fff; }
+  .sticky-cta .paypal { background:var(--paypal); color:#fff; }
+  .pro-badge { display:inline-block; background:var(--accent2); color:#04241a; font-size:10px; font-weight:700; padding:2px 6px; border-radius:4px; margin-left:6px; vertical-align:middle; }
+  .social-proof { display:flex; justify-content:center; gap:16px; margin:12px 0; flex-wrap:wrap; }
+  .social-proof span { font-size:12px; color:var(--muted); }
+  .social-proof strong { color:var(--txt); }
+  .share-row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .share-row button { font-size:12px; padding:4px 10px; }
+  .pro-section { max-width:600px; margin:0 auto; }
+  .pro-section h3 { margin-top:0; }
+  .demo-hint { background:#1a2332; border:1px solid var(--line); border-radius:6px; padding:6px 10px; margin-bottom:8px; font-size:12px; color:var(--muted); }
+  .demo-hint strong { color:var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>TopicSplit</h1>
+  <span class="tag">Offline semantic text grouper · no server · no tracking</span>
+  <a href="#pro" class="pro-badge" style="text-decoration:none;">PRO CLI →</a>
+</header>
+
+<div class="hero">
+  <h2>Split text by meaning, not word count</h2>
+  <p>Paste any article, transcript, or notes → get clean topic segments. Perfect for Obsidian, Logseq, Notion, and PKM workflows.</p>
+  <div class="badges">
+    <span class="badge">🔒 <strong>100% offline</strong> — nothing leaves your browser</span>
+    <span class="badge">⚡ <strong>Zero install</strong> — just paste and split</span>
+    <span class="badge">💰 <strong>Free</strong> — MIT licensed, forever</span>
+  </div>
+  <div class="social-proof">
+    <span>⭐ <strong>1</strong> GitHub star</span>
+    <span>👀 <strong>17</strong> demo views</span>
+    <span>🔒 <strong>0</strong> bytes sent to server</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="panel">
+    <strong>1 · Paste your text</strong>
+    <div class="demo-hint">💡 <strong>Tip:</strong> Try the sample text below to see it instantly, or paste your own article/transcript.</div>
+    <textarea id="src" placeholder="Paste an article, transcript, or notes here..."></textarea>
+    <div class="controls">
+      <label>Sensitivity
+        <input id="sens" type="range" min="0" max="100" value="55">
+        <span id="sensval">55</span>
+      </label>
+      <label><input id="minlen" type="checkbox" checked> skip tiny segments</label>
+    </div>
+    <div class="controls">
+      <button id="run">Split into topics</button>
+      <button id="dl" class="sec">Download .md</button>
+      <button id="copy" class="sec">Copy markdown</button>
+    </div>
+    <div class="controls share-row">
+      <button id="sample" class="sec">📋 Try sample text</button>
+      <button id="share" class="sec">🔗 Copy link</button>
+      <button id="tweet" class="sec">𝕏 Tweet</button>
+    </div>
+    <div class="meta" id="stat">Ready.</div>
+    <div class="tip-bar" id="tipbar">❤️ Found this useful? <a href="https://ko-fi.com/andrwspt" target="_blank" rel="noopener">Tip $1 on Ko-fi</a> or <a href="https://paypal.me/andrwspt" target="_blank" rel="noopener">PayPal</a> — helps me build more free tools like this.</div>
+  </div>
+
+  <div class="panel">
+    <strong>2 · Topic segments</strong>
+    <div id="out" class="out">Result appears here.</div>
+  </div>
+</div>
+
+<div id="pro" style="padding:16px;">
+  <div class="panel pro-section" style="text-align:center;">
+    <h3>Need to batch-process files?</h3>
+    <p style="color:var(--muted);font-size:14px;">TopicSplit Pro is a CLI tool that splits entire folders of articles in one command. Same algorithm, same privacy — just for power users.</p>
+    <div style="background:#0b0e13;border:1px solid var(--line);border-radius:6px;padding:10px 14px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:var(--muted);text-align:left;margin:12px 0;">
+      <span style="color:var(--accent)">$</span> pip install topicsplit-pro<br>
+      <span style="color:var(--accent)">$</span> topicsplit batch ./articles/
+    </div>
+    <div class="cta" style="margin-top:12px;">
+      <a href="https://github.com/andrwspt/topicsplit/tree/master/pro" target="_blank" rel="noopener" class="sec" style="color:var(--accent2);border-color:var(--accent2);">View Pro on GitHub →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>Free & open-source. If TopicSplit saves you time, a $1 tip keeps the tools coming:</div>
+  <div class="cta">
+    <a href="https://ko-fi.com/andrwspt" target="_blank" rel="noopener" class="kofi">☕ Ko-fi</a>
+    <a href="https://paypal.me/andrwspt" target="_blank" rel="noopener" class="paypal">💳 PayPal</a>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <span class="msg">Found TopicSplit useful? <strong>$1 keeps it alive →</strong></span>
+  <a href="https://ko-fi.com/andrwspt" target="_blank" rel="noopener" class="kofi">☕ Ko-fi</a>
+  <a href="https://paypal.me/andrwspt" target="_blank" rel="noopener" class="paypal">💳 PayPal</a>
+</div>
+
+<script>
+const STOP = new Set(("a an the and or but if then of to in on at by for with as is are was were be been being this that these those it its he she they we you i me my your our their from into about over under between which who what when where why how not no do does did have has had will would can could should may might must also than so such only own same each more most other some any all both few many one two three first second").split(" "));
+
+function sentences(text){
+  return text.replace(/\s+/g," ").match(/[^.!?]+[.!?]+|\S[^.!?]*$/g).map(s=>s.trim()).filter(Boolean);
+}
+function words(s){
+  return s.toLowerCase().replace(/[^a-z0-9\s]/g," ").split(/\s+/).filter(w=>w.length>3 && !STOP.has(w));
+}
+function overlap(a,b){
+  if(!a.length||!b.length) return 0;
+  const sa=new Set(a), sb=new Set(b);
+  let inter=0; for(const w of sa) if(sb.has(w)) inter++;
+  return inter/(Math.sqrt(sa.size*sb.size)||1);
+}
+function split(text, sens, skipTiny){
+  const sents = sentences(text);
+  if(sents.length<2) return sents;
+  const ws = sents.map(words);
+  const coh=[];
+  for(let i=0;i<sents.length-1;i++) coh.push(overlap(ws[i],ws[i+1]));
+  const mean = coh.reduce((a,b)=>a+b,0)/coh.length;
+  const sd = Math.sqrt(coh.reduce((a,b)=>a+(b-mean)**2,0)/coh.length);
+  const thr = Math.max(0, mean - (sens/100)*(mean+sd));
+  const segs=[]; let cur=[sents[0]];
+  for(let i=0;i<coh.length;i++){
+    if(coh[i] < thr){ segs.push(cur.join(" ")); cur=[sents[i+1]]; }
+    else cur.push(sents[i+1]);
+  }
+  segs.push(cur.join(" "));
+  if(skipTiny){
+    const out=[]; let buf="";
+    for(const g of segs){
+      if(g.split(/\s+/).length < 6 && out.length){ out[out.length-1]+=" "+g; }
+      else out.push(g);
+    }
+    return out;
+  }
+  return segs;
+}
+function watermark() {
+  return "\n\n---\n*Generated by [TopicSplit](https://andrwspt.github.io/topicsplit/) — free offline semantic text grouper*";
+}
+function render(segs){
+  return segs.map((g,i)=>`### Topic ${i+1}\n${g}`).join("\n\n") + watermark();
+}
+const $ = id=>document.getElementById(id);
+$("sens").oninput = e=>$("sensval").textContent=e.target.value;
+$("run").onclick = ()=>{
+  const t=$("src").value.trim();
+  if(!t){ $("stat").textContent="Paste some text first."; $("tipbar").style.display="none"; return; }
+  const segs=split(t, +$("sens").value, $("minlen").checked);
+  $("out").textContent = render(segs);
+  $("stat").textContent = segs.length+" topic segments from "+sentences(t).length+" sentences.";
+  $("tipbar").style.display="block";
+};
+$("sample").onclick = ()=>{
+  const s = "The Pomodoro Technique is a time management method that uses a timer to break work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for tomato, after the tomato-shaped kitchen timer that Cirillo used as a university student. The technique is based on the idea that frequent breaks can improve mental agility and reduce fatigue. To use the technique, you choose a task, set a timer for 25 minutes, work until the timer rings, then take a 5-minute break. After four pomodoros, take a longer break of 15-30 minutes. Many people find this method helps them maintain focus and avoid burnout. However, critics argue that the rigid time structure may not suit all types of work, particularly creative tasks that require longer periods of uninterrupted flow. Some researchers suggest that individual differences in attention span mean that optimal work intervals vary from person to person. Alternatives include the 52-17 rule, where you work for 52 minutes and rest for 17, based on data from productivity tracking apps. Time blocking is another approach, where you schedule specific tasks into fixed slots on your calendar throughout the day.";
+  $("src").value = s;
+  $("stat").textContent = "Sample text loaded. Click Split to try it.";
+  $("tipbar").style.display="none";
+};
+$("copy").onclick = ()=>{ navigator.clipboard.writeText($("out").textContent); $("stat").textContent="Markdown copied (with attribution link)."; };
+$("share").onclick = ()=>{ const u="https://andrwspt.github.io/topicsplit/"; navigator.clipboard.writeText(u); $("stat").textContent="Link copied!"; };
+$("tweet").onclick = ()=>{ const u="https://andrwspt.github.io/topicsplit/"; const t="I just tried TopicSplit — a free offline tool that splits text into topic segments by meaning, not word count. No server, no tracking. Perfect for Obsidian/Logseq/Notion 🔓 "+u; window.open("https://twitter.com/intent/tweet?text="+encodeURIComponent(t), "_blank"); };
+$("dl").onclick = ()=>{
+  const blob=new Blob([$("out").textContent],{type:"text/markdown"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="topicsplit.md"; a.click();
+};
+</script>
+</body>
+</html>"""
+
+with open(path, 'w') as f:
+    f.write(html)
+print(f'Wrote {len(html)} bytes to {path}')
+print('Exists:', os.path.exists(path))
