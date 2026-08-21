@@ -61,6 +61,20 @@
   .social-proof { display:flex; justify-content:center; gap:16px; margin:12px 0; flex-wrap:wrap; }
   .social-proof span { font-size:12px; color:var(--muted); }
   .social-proof strong { color:var(--txt); }
+  .share-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+  .share-row a { display:inline-flex; align-items:center; gap:4px; padding:6px 12px; border-radius:6px; text-decoration:none; font-weight:600; font-size:12px; transition:transform .15s; }
+  .share-row a:hover { transform:scale(1.05); }
+  .share-twitter { background:#1da1f2; color:#fff; }
+  .share-linkedin { background:#0077b5; color:#fff; }
+  .share-reddit { background:#ff4500; color:#fff; }
+  .share-email { background:var(--accent); color:#04221a; }
+  .embed-section { margin-top:14px; padding:14px; background:var(--panel); border:1px solid var(--line); border-radius:10px; }
+  .embed-section h4 { margin:0 0 8px; font-size:14px; color:var(--accent); }
+  .embed-section p { color:var(--muted); font-size:12px; margin:0 0 10px; }
+  .code-box { display:flex; gap:8px; align-items:flex-start; }
+  .code-box textarea { flex:1; min-height:60px; font-size:11px; background:#0b0e13; color:var(--txt); border:1px solid var(--line); border-radius:6px; padding:8px; font-family:ui-monospace,Menlo,Consolas,monospace; resize:vertical; }
+  .code-box button { font-size:12px; padding:6px 12px; white-space:nowrap; }
+  .copy-feedback { font-size:11px; color:var(--accent); margin-top:4px; display:none; }
 </style>
 </head>
 <body>
@@ -114,6 +128,34 @@
   <div class="panel">
     <strong>2 · Topic segments</strong>
     <div id="out" class="out">Result appears here.</div>
+    <div class="share-row" id="shareRow" style="display:none;">
+      <a href="#" id="tweetResult" class="share-twitter" target="_blank" rel="noopener">🐦 Tweet this</a>
+      <a href="#" id="linkedinResult" class="share-linkedin" target="_blank" rel="noopener">💼 LinkedIn</a>
+      <a href="#" id="redditResult" class="share-reddit" target="_blank" rel="noopener">📰 Reddit</a>
+      <a href="#" id="emailResult" class="share-email">📧 Email</a>
+    </div>
+  </div>
+</div>
+
+<div style="padding:0 16px 16px;">
+  <div class="embed-section">
+    <h4>📎 Embed TopicSplit on your site</h4>
+    <p>Drop this iframe on any page — your visitors can split text without leaving your site.</p>
+    <div class="code-box">
+      <textarea id="embedCode" readonly><iframe src="https://andrwspt.github.io/topicsplit/" width="100%" height="500" frameborder="0" title="TopicSplit — free offline text grouper"></iframe></textarea>
+      <button id="copyEmbed" class="sec" style="font-size:12px;padding:6px 12px;">Copy code</button>
+    </div>
+    <div class="copy-feedback" id="embedFeedback">✓ Copied!</div>
+  </div>
+
+  <div class="embed-section">
+    <h4>🏷️ Add a "Powered by TopicSplit" badge</h4>
+    <p>Link back to TopicSplit with a clean badge for your blog or documentation site.</p>
+    <div class="code-box">
+      <textarea id="badgeCode" readonly><a href="https://andrwspt.github.io/topicsplit/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:#161b22;border:1px solid #2b3340;border-radius:20px;font-family:system-ui,sans-serif;font-size:12px;color:#8b98a5;text-decoration:none;"><span style="color:#4dd0a7;font-weight:700;">💚</span> Powered by TopicSplit</a></textarea>
+      <button id="copyBadge" class="sec" style="font-size:12px;padding:6px 12px;">Copy code</button>
+    </div>
+    <div class="copy-feedback" id="badgeFeedback">✓ Copied!</div>
   </div>
 </div>
 
@@ -182,7 +224,9 @@ function split(text, sens, skipTiny){
   return segs;
 }
 function render(segs){
-  return segs.map((g,i)=>`### Topic ${i+1}\n${g}`).join("\n\n");
+  const body = segs.map((g,i)=>`### Topic ${i+1}\n${g}`).join("\n\n");
+  const attrib = "\n\n---\n_Split with [TopicSplit](https://andrwspt.github.io/topicsplit/) — free, offline, no tracking_";
+  return body + attrib;
 }
 const $ = id=>document.getElementById(id);
 $("sens").oninput = e=>$("sensval").textContent=e.target.value;
@@ -192,7 +236,7 @@ $("sample").onclick = ()=>{
   $("stat").textContent = "Sample text loaded. Click Split to try it.";
   $("tipbar").style.display="none";
 };
-$("copy").onclick = ()=>{ navigator.clipboard.writeText($("out").textContent); $("stat").textContent="Markdown copied (with attribution link)."; };
+$("copy").onclick = ()=>{ navigator.clipboard.writeText($("out").textContent); $("stat").textContent="Markdown copied — attribution link included!"; };
 $("digest").onclick = ()=>{
   const segs = split($("src").value.trim(), +$("sens").value, $("minlen").checked);
   if(segs.length < 2){ $("stat").textContent="Split first, then digest."; return; }
@@ -208,15 +252,31 @@ $("dl").onclick = ()=>{
   const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="topicsplit.md"; a.click();
 };
 
+// Share buttons for results
+function buildShareLinks(segs){
+  const u = "https://andrwspt.github.io/topicsplit/";
+  const preview = segs.slice(0,3).map((g,i)=>`Topic ${i+1}: ${g.split(/\s+/).slice(0,6).join(" ")}...`).join("\n");
+  const text = `I just split an article into ${segs.length} topic segments using TopicSplit — free, offline, no tracking.\n\n${preview}\n\nTry it: ${u}`;
+  const encoded = encodeURIComponent(text);
+  const urlEnc = encodeURIComponent(u);
+  
+  $("tweetResult").href = `https://twitter.com/intent/tweet?text=${encoded}`;
+  $("linkedinResult").href = `https://www.linkedin.com/sharing/share-offsite/?url=${urlEnc}`;
+  $("redditResult").href = `https://reddit.com/submit?url=${urlEnc}&title=${encodeURIComponent("I split an article into topic segments using TopicSplit — free, offline, no tracking")}`;
+  $("emailResult").href = `mailto:?subject=${encodeURIComponent("Check out TopicSplit — free offline text grouper")}&body=${encoded}`;
+}
+
 // Challenge a friend prompt
 $("run").onclick = ()=>{
   const t=$("src").value.trim();
-  if(!t){ $("stat").textContent="Paste some text first."; $("tipbar").style.display="none"; $("challenge").style.display="none"; return; }
+  if(!t){ $("stat").textContent="Paste some text first."; $("tipbar").style.display="none"; $("challenge").style.display="none"; $("shareRow").style.display="none"; return; }
   const segs=split(t, +$("sens").value, $("minlen").checked);
   $("out").textContent = render(segs);
   $("stat").textContent = segs.length+" topic segments from "+sentences(t).length+" sentences.";
   $("tipbar").style.display="block";
   $("challenge").style.display="block";
+  $("shareRow").style.display="flex";
+  buildShareLinks(segs);
 };
 $("sendFriend").onclick = (e)=>{
   e.preventDefault();
@@ -225,6 +285,17 @@ $("sendFriend").onclick = (e)=>{
   if(navigator.share){navigator.share({title:"TopicSplit — free text grouper",text:msg});}
   else{navigator.clipboard.writeText(msg);$("stat").textContent="Message copied! Paste it to a friend.";}
 };
+
+// Embed & badge copy buttons
+function copyCode(btnId, inputId, feedbackId){
+  const el = $(inputId);
+  el.select();
+  navigator.clipboard.writeText(el.value);
+  $(feedbackId).style.display = "block";
+  setTimeout(()=>{ $(feedbackId).style.display = "none"; }, 2000);
+}
+$("copyEmbed").onclick = ()=>copyCode("copyEmbed", "embedCode", "embedFeedback");
+$("copyBadge").onclick = ()=>copyCode("copyBadge", "badgeCode", "badgeFeedback");
 </script>
 </body>
 </html>
