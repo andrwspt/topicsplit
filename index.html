@@ -75,6 +75,9 @@
   .code-box textarea { flex:1; min-height:60px; font-size:11px; background:#0b0e13; color:var(--txt); border:1px solid var(--line); border-radius:6px; padding:8px; font-family:ui-monospace,Menlo,Consolas,monospace; resize:vertical; }
   .code-box button { font-size:12px; padding:6px 12px; white-space:nowrap; }
   .copy-feedback { font-size:11px; color:var(--accent); margin-top:4px; display:none; }
+  .landing-links { display:flex; justify-content:center; gap:12px; margin:16px 0; flex-wrap:wrap; }
+  .landing-links a { font-size:12px; color:var(--accent2); text-decoration:none; padding:4px 10px; border:1px solid var(--line); border-radius:6px; }
+  .landing-links a:hover { border-color:var(--accent2); }
 </style>
 </head>
 <body>
@@ -94,8 +97,14 @@
   </div>
   <div class="social-proof">
     <span>⭐ <strong>1</strong> GitHub star</span>
-    <span>👀 <strong>17</strong> demo views</span>
+    <span>👀 <strong>19</strong> demo views</span>
     <span>🔒 <strong>0</strong> bytes sent to server</span>
+  </div>
+  <div class="landing-links">
+    <a href="obsidian.html">For Obsidian →</a>
+    <a href="logseq.html">For Logseq →</a>
+    <a href="blog.html">Blog</a>
+    <a href="vs.html">vs Alternatives</a>
   </div>
 </div>
 
@@ -246,7 +255,7 @@ $("digest").onclick = ()=>{
   if(navigator.share){navigator.share({title:"TopicSplit Digest",text:card});}
   else{navigator.clipboard.writeText(card);$("stat").textContent="Digest card copied!";}
 };
-$("share").onclick = ()=>{ const u="https://andrwspt.github.io/topicsplit/"; if(navigator.share){navigator.share({title:"TopicSplit — split text by meaning",url:u});}else{navigator.clipboard.writeText(u);$("stat").textContent="Link copied!";} };
+$("share").onclick = ()=>{ const u="https://andrwspt.github.io/topicsplit/"; if(navigator.share){navigator.share({title:"TopicSplit — split text by meaning",url:u});}else{navigator.clipboard.writeText(u);$("stat").textContent="Link copied!"} };
 $("dl").onclick = ()=>{
   const blob=new Blob([$("out").textContent],{type:"text/markdown"});
   const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="topicsplit.md"; a.click();
