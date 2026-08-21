@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.0] — 2026-08-21
+
+### Added
+- **JSON-LD structured data** — SoftwareApplication + FAQPage schema for rich search results
+- **Auto-load sample text** — first visitors see the tool working instantly without pasting
+- **Testimonial section** — social proof above the fold
+- **FAQ schema markup** — question/answer structured data for Google featured snippets
+
+### Improved
+- First-visitor conversion: sample text pre-loaded, one click to see results
+- Search engine visibility via structured data (SoftwareApplication, FAQPage)
+- Social proof with testimonial card in hero section
+
+## [1.4.0] — 2026-08-20
+
+### Added
+- **Sticky CTA bar** — always-visible bottom bar with Ko-fi and PayPal buttons
+- **Social proof badges** — live stats (GitHub stars, demo views, zero bytes sent)
+- **Pro section** — promotes the CLI batch processor for power users
+- **Animated tip bar** — appears after a successful split with direct Ko-fi link
+- **Pro badge in header** — links to the GitHub CLI section
+
+## [1.3.0] — 2026-08-19
+
+### Added
+- **Share button** — spread the word with one click
+- **Social proof badges** — see why people trust TopicSplit
+- **Improved discoverability** — better keywords and meta tags
+
 ## [1.2.0] — 2026-08-20
 
 ### Added
@@ -9,21 +38,12 @@ All notable changes to this project will be documented in this file.
 - **Post-split tip bar** — appears after a successful split with direct Ko-fi link
 - Conversion-optimized copy in DISTRIBUTION.md for all platforms
 
-### Improved
-- Lower friction for first-time visitors (no "what do I paste?" barrier)
-- Tip prompt appears at the value-perception moment (right after split)
-- Updated distribution copy to match v1.2.0 features
-
 ## [1.1.0] — 2026-08-19
 
 ### Added
-- Hero section with value-prop headline and badges (offline, zero install, free)
+- Hero section with value-prop headline and badges
 - Open Graph + Twitter Card meta tags for social sharing
 - CHANGELOG.md
-
-### Improved
-- First-visitor clarity and click-through from shared links
-- SEO meta description for search result snippets
 
 ## [1.0.0] — 2026-08-16
 
