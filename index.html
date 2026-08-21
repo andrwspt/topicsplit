@@ -8,36 +8,10 @@
 <meta property="og:description" content="Free offline semantic text grouper. Paste any article, transcript, or notes → get clean topic segments. No server, no API key, no tracking.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://andrwspt.github.io/topicsplit/">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TopicSplit — split text by meaning, offline">
 <meta name="twitter:description" content="Free offline semantic text grouper. No server, no API key, no tracking.">
 <title>TopicSplit — offline semantic text grouper</title>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "TopicSplit",
-  "operatingSystem": "Any",
-  "applicationCategory": "ProductivityApplication",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "description": "Free offline semantic text grouper. Split pasted text into topic segments by meaning, not word count. Perfect for Obsidian, Logseq, Notion, and PKM workflows.",
-  "url": "https://andrwspt.github.io/topicsplit/",
-  "author": { "@type": "Person", "name": "Andrew", "url": "https://github.com/andrwspt" },
-  "featureList": ["100% offline", "No server", "No API key", "No tracking", "Semantic segmentation", "Markdown export", "MIT licensed"]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    { "@type": "Question", "name": "Is TopicSplit really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. TopicSplit is MIT-licensed and free forever. No paywalls, no feature tiers, no pro version." } },
-    { "@type": "Question", "name": "Does it work offline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. TopicSplit runs entirely in your browser. No server, no API key, no tracking. Your text never leaves your device." } },
-    { "@type": "Question", "name": "What is the longest text I can paste?", "acceptedAnswer": { "@type": "Answer", "text": "There is no hard limit. It has been tested on transcripts up to 50,000 words." } },
-    { "@type": "Question", "name": "Does it work in languages other than English?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The segmentation algorithm is language-agnostic. It works on any text where topic shifts are marked by vocabulary changes." } }
-  ]
-}
-</script>
 <style>
   :root { --bg:#0e1116; --panel:#161b22; --line:#2b3340; --txt:#e6edf3; --muted:#8b98a5; --accent:#4dd0a7; --accent2:#58a6ff; --kofi:#ff5e5b; --paypal:#003087; }
   * { box-sizing: border-box; }
@@ -53,8 +27,7 @@
   .controls { display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin:10px 0 4px; }
   label { color:var(--muted); font-size:13px; display:flex; align-items:center; gap:8px; }
   input[type=range]{ accent-color:var(--accent); }
-  button { background:var(--accent); color:#04221a; border:0; border-radius:8px; padding:9px 14px; font-weight:600; cursor:pointer; transition:transform .15s; }
-  button:hover { transform:scale(1.03); }
+  button { background:var(--accent); color:#04221a; border:0; border-radius:8px; padding:9px 14px; font-weight:600; cursor:pointer; }
   button.sec { background:transparent; color:var(--accent2); border:1px solid var(--accent2); }
   .meta { color:var(--muted); font-size:12px; margin-top:8px; }
   footer { padding:14px 22px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; text-align:center; }
@@ -74,6 +47,9 @@
   .tip-bar a { color:var(--accent); font-weight:600; text-decoration:none; }
   .tip-bar a:hover { text-decoration:underline; }
   @keyframes slideIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
+  .challenge-bar { margin-top:8px; padding:10px 14px; background:#1a2332; border:1px solid var(--accent2); border-radius:8px; font-size:13px; color:var(--txt); display:none; animation:slideIn .3s ease; }
+  .challenge-bar a { color:var(--accent2); font-weight:600; text-decoration:none; }
+  .challenge-bar a:hover { text-decoration:underline; }
   .sticky-cta { position:fixed; bottom:0; left:0; right:0; background:var(--panel); border-top:1px solid var(--line); padding:10px 22px; display:flex; align-items:center; justify-content:center; gap:16px; z-index:100; box-shadow:0 -4px 20px rgba(0,0,0,.4); }
   .sticky-cta .msg { font-size:13px; color:var(--muted); }
   .sticky-cta .msg strong { color:var(--accent); }
@@ -85,12 +61,6 @@
   .social-proof { display:flex; justify-content:center; gap:16px; margin:12px 0; flex-wrap:wrap; }
   .social-proof span { font-size:12px; color:var(--muted); }
   .social-proof strong { color:var(--txt); }
-  .share-row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
-  .share-row button { font-size:12px; padding:4px 10px; }
-  .pro-section { max-width:600px; margin:0 auto; }
-  .pro-section h3 { margin-top:0; }
-  .demo-hint { background:#1a2332; border:1px solid var(--line); border-radius:6px; padding:6px 10px; margin-bottom:8px; font-size:12px; color:var(--muted); }
-  .demo-hint strong { color:var(--accent); }
 </style>
 </head>
 <body>
@@ -113,16 +83,11 @@
     <span>👀 <strong>17</strong> demo views</span>
     <span>🔒 <strong>0</strong> bytes sent to server</span>
   </div>
-  <div style="background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin:16px auto;max-width:500px;text-align:center;">
-    <p style="font-size:13px;color:var(--muted);margin:0 0 6px;font-style:italic;">"I paste every article I read into TopicSplit before it goes into Obsidian. Saves me 10 minutes per article."</p>
-    <span style="font-size:12px;color:var(--accent);font-weight:600;">— A note-taker who values privacy</span>
-  </div>
 </div>
 
 <div class="wrap">
   <div class="panel">
     <strong>1 · Paste your text</strong>
-    <div class="demo-hint">💡 <strong>Tip:</strong> We loaded sample text below — click "Split into topics" to see it work instantly.</div>
     <textarea id="src" placeholder="Paste an article, transcript, or notes here..."></textarea>
     <div class="controls">
       <label>Sensitivity
@@ -136,13 +101,14 @@
       <button id="dl" class="sec">Download .md</button>
       <button id="copy" class="sec">Copy markdown</button>
     </div>
-    <div class="controls share-row">
-      <button id="sample" class="sec">📋 Try sample text</button>
-      <button id="share" class="sec">🔗 Copy link</button>
-      <button id="tweet" class="sec">𝕏 Tweet</button>
+    <div class="controls">
+      <button id="sample" class="sec" style="font-size:12px;padding:4px 10px;">📋 Try with sample text</button>
+      <button id="digest" class="sec" style="font-size:12px;padding:4px 10px;">📊 Digest</button>
+      <button id="share" class="sec" style="font-size:12px;padding:4px 10px;">🔗 Share</button>
     </div>
     <div class="meta" id="stat">Ready.</div>
     <div class="tip-bar" id="tipbar">❤️ Found this useful? <a href="https://ko-fi.com/andrwspt" target="_blank" rel="noopener">Tip $1 on Ko-fi</a> or <a href="https://paypal.me/andrwspt" target="_blank" rel="noopener">PayPal</a> — helps me build more free tools like this.</div>
+    <div class="challenge-bar" id="challenge">💡 Know someone who takes notes? <a href="#" id="sendFriend">Send them TopicSplit</a> — it's free.</div>
   </div>
 
   <div class="panel">
@@ -152,13 +118,9 @@
 </div>
 
 <div id="pro" style="padding:16px;">
-  <div class="panel pro-section" style="text-align:center;">
-    <h3>Need to batch-process files?</h3>
+  <div class="panel" style="max-width:600px;margin:0 auto;text-align:center;">
+    <h3 style="margin-top:0;">Need to batch-process files?</h3>
     <p style="color:var(--muted);font-size:14px;">TopicSplit Pro is a CLI tool that splits entire folders of articles in one command. Same algorithm, same privacy — just for power users.</p>
-    <div style="background:#0b0e13;border:1px solid var(--line);border-radius:6px;padding:10px 14px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:var(--muted);text-align:left;margin:12px 0;">
-      <span style="color:var(--accent)">$</span> pip install topicsplit-pro<br>
-      <span style="color:var(--accent)">$</span> topicsplit batch ./articles/
-    </div>
     <div class="cta" style="margin-top:12px;">
       <a href="https://github.com/andrwspt/topicsplit/tree/master/pro" target="_blank" rel="noopener" class="sec" style="color:var(--accent2);border-color:var(--accent2);">View Pro on GitHub →</a>
     </div>
@@ -219,28 +181,11 @@ function split(text, sens, skipTiny){
   }
   return segs;
 }
-function watermark() {
-  return "
-
----
-*Generated by [TopicSplit](https://andrwspt.github.io/topicsplit/) — free offline semantic text grouper*";
-}
 function render(segs){
-  return segs.map((g,i)=>`### Topic ${i+1}
-${g}`).join("
-
-") + watermark();
+  return segs.map((g,i)=>`### Topic ${i+1}\n${g}`).join("\n\n");
 }
 const $ = id=>document.getElementById(id);
 $("sens").oninput = e=>$("sensval").textContent=e.target.value;
-$("run").onclick = ()=>{
-  const t=$("src").value.trim();
-  if(!t){ $("stat").textContent="Paste some text first."; $("tipbar").style.display="none"; return; }
-  const segs=split(t, +$("sens").value, $("minlen").checked);
-  $("out").textContent = render(segs);
-  $("stat").textContent = segs.length+" topic segments from "+sentences(t).length+" sentences.";
-  $("tipbar").style.display="block";
-};
 $("sample").onclick = ()=>{
   const s = "The Pomodoro Technique is a time management method that uses a timer to break work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for tomato, after the tomato-shaped kitchen timer that Cirillo used as a university student. The technique is based on the idea that frequent breaks can improve mental agility and reduce fatigue. To use the technique, you choose a task, set a timer for 25 minutes, work until the timer rings, then take a 5-minute break. After four pomodoros, take a longer break of 15-30 minutes. Many people find this method helps them maintain focus and avoid burnout. However, critics argue that the rigid time structure may not suit all types of work, particularly creative tasks that require longer periods of uninterrupted flow. Some researchers suggest that individual differences in attention span mean that optimal work intervals vary from person to person. Alternatives include the 52-17 rule, where you work for 52 minutes and rest for 17, based on data from productivity tracking apps. Time blocking is another approach, where you schedule specific tasks into fixed slots on your calendar throughout the day.";
   $("src").value = s;
@@ -248,19 +193,38 @@ $("sample").onclick = ()=>{
   $("tipbar").style.display="none";
 };
 $("copy").onclick = ()=>{ navigator.clipboard.writeText($("out").textContent); $("stat").textContent="Markdown copied (with attribution link)."; };
-$("share").onclick = ()=>{ const u="https://andrwspt.github.io/topicsplit/"; navigator.clipboard.writeText(u); $("stat").textContent="Link copied!"; };
-$("tweet").onclick = ()=>{ const u="https://andrwspt.github.io/topicsplit/"; const t="I just tried TopicSplit — a free offline tool that splits text into topic segments by meaning, not word count. No server, no tracking. Perfect for Obsidian/Logseq/Notion 🔓 "+u; window.open("https://twitter.com/intent/tweet?text="+encodeURIComponent(t), "_blank"); };
+$("digest").onclick = ()=>{
+  const segs = split($("src").value.trim(), +$("sens").value, $("minlen").checked);
+  if(segs.length < 2){ $("stat").textContent="Split first, then digest."; return; }
+  const u = "https://andrwspt.github.io/topicsplit/";
+  const lines = segs.map((g,i)=>`Topic ${i+1}: ${g.split(/\s+/).slice(0,8).join(" ")}...`);
+  const card = `📊 TopicSplit Digest\n\n${lines.join("\n")}\n\nSplit with TopicSplit — free, offline, no tracking:\n${u}`;
+  if(navigator.share){navigator.share({title:"TopicSplit Digest",text:card});}
+  else{navigator.clipboard.writeText(card);$("stat").textContent="Digest card copied!";}
+};
+$("share").onclick = ()=>{ const u="https://andrwspt.github.io/topicsplit/"; if(navigator.share){navigator.share({title:"TopicSplit — split text by meaning",url:u});}else{navigator.clipboard.writeText(u);$("stat").textContent="Link copied!";} };
 $("dl").onclick = ()=>{
   const blob=new Blob([$("out").textContent],{type:"text/markdown"});
   const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="topicsplit.md"; a.click();
 };
 
-// Auto-load sample text on first visit
-(function(){
-  const s = "The Pomodoro Technique is a time management method that uses a timer to break work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for tomato, after the tomato-shaped kitchen timer that Cirillo used as a university student. The technique is based on the idea that frequent breaks can improve mental agility and reduce fatigue. To use the technique, you choose a task, set a timer for 25 minutes, work until the timer rings, then take a 5-minute break. After four pomodoros, take a longer break of 15-30 minutes. Many people find this method helps them maintain focus and avoid burnout. However, critics argue that the rigid time structure may not suit all types of work, particularly creative tasks that require longer periods of uninterrupted flow. Some researchers suggest that individual differences in attention span mean that optimal work intervals vary from person to person. Alternatives include the 52-17 rule, where you work for 52 minutes and rest for 17, based on data from productivity tracking apps. Time blocking is another approach, where you schedule specific tasks into fixed slots on your calendar throughout the day.";
-  $("src").value = s;
-  $("stat").textContent = "Sample text loaded — click Split to try it!";
-})();
+// Challenge a friend prompt
+$("run").onclick = ()=>{
+  const t=$("src").value.trim();
+  if(!t){ $("stat").textContent="Paste some text first."; $("tipbar").style.display="none"; $("challenge").style.display="none"; return; }
+  const segs=split(t, +$("sens").value, $("minlen").checked);
+  $("out").textContent = render(segs);
+  $("stat").textContent = segs.length+" topic segments from "+sentences(t).length+" sentences.";
+  $("tipbar").style.display="block";
+  $("challenge").style.display="block";
+};
+$("sendFriend").onclick = (e)=>{
+  e.preventDefault();
+  const u = "https://andrwspt.github.io/topicsplit/";
+  const msg = `Hey! I just used TopicSplit to break down an article into clean topic segments — free, offline, no tracking. Perfect if you use Obsidian, Logseq, or Notion for notes. Check it out: ${u}`;
+  if(navigator.share){navigator.share({title:"TopicSplit — free text grouper",text:msg});}
+  else{navigator.clipboard.writeText(msg);$("stat").textContent="Message copied! Paste it to a friend.";}
+};
 </script>
 </body>
 </html>
