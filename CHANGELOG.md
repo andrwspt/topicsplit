@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.0] — 2026-08-21
+
+### Added
+- **Attribution in every export** — every copy/download includes `Split with [TopicSplit](link)` backlink for viral distribution
+- **Share buttons** — after splitting, users get one-click Tweet/LinkedIn/Reddit/Email share buttons with pre-filled text
+- **Embed widget** — copy-paste iframe code to embed TopicSplit on any site (one click to copy)
+- **Badge widget** — copy-paste "Powered by TopicSplit" badge for blogs/docs (one click to copy)
+- **"Challenge a friend" prompt** — post-split nudge to share with note-taking friends
+
+### Improved
+- Viral loops: every export now carries attribution back to the tool
+- Distribution: embeddable widgets let other sites host TopicSplit (and drive traffic)
+- Shareability: one-click social sharing after a successful split
+
 ## [1.5.0] — 2026-08-21
 
 ### Added
