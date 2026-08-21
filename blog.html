@@ -8,6 +8,27 @@
 <meta property="og:description" content="Stop pasting walls of text into your notes. This free offline tool splits any article into clean topic segments by meaning.">
 <meta property="og:type" content="article">
 <title>How to Break Down a Long Article Into Atomic Notes - Free Offline Tool</title>
+<meta name="description" content="Learn how to break down any long article into clean atomic notes — offline, private, free. Perfect for Obsidian, Logseq, Notion, and PKM workflows. No server, no tracking.">
+<meta property="og:title" content="How to Break Down a Long Article Into Atomic Notes (Offline, Free)">
+<meta property="og:description" content="Stop pasting walls of text into your notes. This free offline tool splits any article into clean topic segments by meaning.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://andrwspt.github.io/topicsplit/blog.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Break Down a Long Article Into Atomic Notes">
+<meta name="twitter:description" content="Free offline tool. Split any article into clean topic segments by meaning.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Break Down a Long Article Into Atomic Notes (Without Losing Your Mind)",
+  "description": "Learn how to break down any long article into clean atomic notes — offline, private, free. Perfect for Obsidian, Logseq, Notion, and PKM workflows.",
+  "author": { "@type": "Person", "name": "Andrew", "url": "https://github.com/andrwspt" },
+  "publisher": { "@type": "Organization", "name": "TopicSplit" },
+  "datePublished": "2026-08-16",
+  "dateModified": "2026-08-21",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://andrwspt.github.io/topicsplit/blog.html" }
+}
+</script>
 <style>
 :root{--bg:#0b0e13;--panel:#141922;--line:#232a36;--txt:#e6edf3;--muted:#7d8ba1;--accent:#4dd0a7;--accent2:#58a6ff;}
 *{box-sizing:border-box;}
@@ -126,6 +147,53 @@ footer a{color:var(--accent2);}
 <p>Yes. MIT license means you can use it for anything - personal, commercial, whatever.</p>
 <h3>Is there an API?</h3>
 <p>No API. That is the point. If you want to integrate it into a pipeline, download the source and run it locally.</p>
+<h2>How to use TopicSplit with Obsidian</h2>
+<p>Obsidian is a powerful knowledge base that works on local Markdown files. TopicSplit fits perfectly into the Obsidian workflow:</p>
+<ol>
+<li>Find an article you want to save to your vault</li>
+<li>Copy the full text and paste it into TopicSplit</li>
+<li>Adjust the Sensitivity slider to control how many segments you get</li>
+<li>Click "Copy markdown" - the output is clean <code>### Topic N</code> headings</li>
+<li>Paste directly into a new Obsidian note</li>
+<li>Each segment becomes a separate header you can link to, tag, and organize</li>
+</ol>
+<p>For atomic note-taking: run TopicSplit, then split each topic into its own note using Obsidian's "Split note" feature or a plugin like Note Refactor.</p>
+<h2>How to use TopicSplit with Logseq</h2>
+<p>Logseq is an open-source knowledge management tool that uses a journal-first approach. Here is how TopicSplit fits:</p>
+<ol>
+<li>Copy an article, podcast transcript, or meeting notes</li>
+<li>Paste into TopicSplit and adjust Sensitivity for your preferred granularity</li>
+<li>Click "Download .md" to save the segmented markdown</li>
+<li>Import into Logseq, or paste directly into your daily journal</li>
+<li>Each <code>### Topic N</code> heading becomes a block reference you can link across your knowledge graph</li>
+</ol>
+<p>Logseq users especially benefit from semantic splitting because the algorithm finds topic transitions that are not obvious from formatting alone.</p>
+<h2>How to use TopicSplit with Notion</h2>
+<p>Notion is a popular all-in-one workspace. While Notion does not use Markdown files, TopicSplit's output transfers cleanly:</p>
+<ol>
+<li>Paste any article, interview, or research into TopicSplit</li>
+<li>Split into topics and copy the markdown</li>
+<li>Paste into a Notion page - Notion auto-converts <code>### Headings</code> into proper toggle headers</li>
+<li>Use the segmented output as the foundation for a Notion database entry</li>
+</ol>
+<h2>Semantic chunking vs word count splitting</h2>
+<p>Most text splitters work by character count or word count. They cut every N words regardless of meaning. This produces garbage - sentences get split mid-thought, and topics get scattered across multiple chunks.</p>
+<p>TopicSplit uses lexical cohesion: it measures how many content words (nouns, verbs, adjectives) overlap between adjacent sentences. When overlap drops below a threshold, it marks a topic boundary. The result: segments that respect the natural structure of the text.</p>
+<p><strong>Word count splitting:</strong> "The cat sat on the mat. The dog..." becomes two chunks at word 10, splitting the sentence in half.</p>
+<p><strong>Semantic splitting (TopicSplit):</strong> "The cat sat on the mat. The dog barked at the mailman." stays together as one unit because both sentences share context about pets.</p>
+<h2>Why privacy matters for note-taking</h2>
+<p>Most "AI summarizer" tools ship your text to a server. That means your research, your ideas, your private notes are processed by someone else's machine. They can log it, profile you, or leak it.</p>
+<p>TopicSplit cannot leak your data because it never collects it. The code is open-source and runs entirely in your browser. You can verify this yourself - disconnect from the internet, reload the page, and it still works.</p>
+<p>For journalists, researchers, therapists, and anyone handling sensitive text, this is not a nice-to-have. It is a requirement.</p>
+<h2>More free tools</h2>
+<p>TopicSplit is one of several free, open-source tools I build. All of them follow the same principles: 100% offline, MIT licensed, no tracking, no accounts.</p>
+<p>If you find these tools useful, a $1 tip on Ko-fi helps me build more:</p>
+<div class="cta-box">
+<h3>Support free, private tools</h3>
+<p>Every dollar goes back into building more offline, tracking-free tools.</p>
+<a href="https://ko-fi.com/andrwspt" target="_blank" rel="noopener" class="kofi">☕ Tip $1 on Ko-fi</a>
+<a href="https://paypal.me/andrwspt" target="_blank" rel="noopener" class="paypal">💳 Tip $1 on PayPal</a>
+</div>
 </article>
 </div>
 <footer>
