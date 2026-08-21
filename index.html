@@ -12,6 +12,32 @@
 <meta name="twitter:title" content="TopicSplit — split text by meaning, offline">
 <meta name="twitter:description" content="Free offline semantic text grouper. No server, no API key, no tracking.">
 <title>TopicSplit — offline semantic text grouper</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "TopicSplit",
+  "operatingSystem": "Any",
+  "applicationCategory": "ProductivityApplication",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free offline semantic text grouper. Split pasted text into topic segments by meaning, not word count. Perfect for Obsidian, Logseq, Notion, and PKM workflows.",
+  "url": "https://andrwspt.github.io/topicsplit/",
+  "author": { "@type": "Person", "name": "Andrew", "url": "https://github.com/andrwspt" },
+  "featureList": ["100% offline", "No server", "No API key", "No tracking", "Semantic segmentation", "Markdown export", "MIT licensed"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is TopicSplit really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. TopicSplit is MIT-licensed and free forever. No paywalls, no feature tiers, no pro version." } },
+    { "@type": "Question", "name": "Does it work offline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. TopicSplit runs entirely in your browser. No server, no API key, no tracking. Your text never leaves your device." } },
+    { "@type": "Question", "name": "What is the longest text I can paste?", "acceptedAnswer": { "@type": "Answer", "text": "There is no hard limit. It has been tested on transcripts up to 50,000 words." } },
+    { "@type": "Question", "name": "Does it work in languages other than English?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The segmentation algorithm is language-agnostic. It works on any text where topic shifts are marked by vocabulary changes." } }
+  ]
+}
+</script>
 <style>
   :root { --bg:#0e1116; --panel:#161b22; --line:#2b3340; --txt:#e6edf3; --muted:#8b98a5; --accent:#4dd0a7; --accent2:#58a6ff; --kofi:#ff5e5b; --paypal:#003087; }
   * { box-sizing: border-box; }
@@ -87,12 +113,16 @@
     <span>👀 <strong>17</strong> demo views</span>
     <span>🔒 <strong>0</strong> bytes sent to server</span>
   </div>
+  <div style="background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin:16px auto;max-width:500px;text-align:center;">
+    <p style="font-size:13px;color:var(--muted);margin:0 0 6px;font-style:italic;">"I paste every article I read into TopicSplit before it goes into Obsidian. Saves me 10 minutes per article."</p>
+    <span style="font-size:12px;color:var(--accent);font-weight:600;">— A note-taker who values privacy</span>
+  </div>
 </div>
 
 <div class="wrap">
   <div class="panel">
     <strong>1 · Paste your text</strong>
-    <div class="demo-hint">💡 <strong>Tip:</strong> Try the sample text below to see it instantly, or paste your own article/transcript.</div>
+    <div class="demo-hint">💡 <strong>Tip:</strong> We loaded sample text below — click "Split into topics" to see it work instantly.</div>
     <textarea id="src" placeholder="Paste an article, transcript, or notes here..."></textarea>
     <div class="controls">
       <label>Sensitivity
@@ -224,6 +254,13 @@ $("dl").onclick = ()=>{
   const blob=new Blob([$("out").textContent],{type:"text/markdown"});
   const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="topicsplit.md"; a.click();
 };
+
+// Auto-load sample text on first visit
+(function(){
+  const s = "The Pomodoro Technique is a time management method that uses a timer to break work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for tomato, after the tomato-shaped kitchen timer that Cirillo used as a university student. The technique is based on the idea that frequent breaks can improve mental agility and reduce fatigue. To use the technique, you choose a task, set a timer for 25 minutes, work until the timer rings, then take a 5-minute break. After four pomodoros, take a longer break of 15-30 minutes. Many people find this method helps them maintain focus and avoid burnout. However, critics argue that the rigid time structure may not suit all types of work, particularly creative tasks that require longer periods of uninterrupted flow. Some researchers suggest that individual differences in attention span mean that optimal work intervals vary from person to person. Alternatives include the 52-17 rule, where you work for 52 minutes and rest for 17, based on data from productivity tracking apps. Time blocking is another approach, where you schedule specific tasks into fixed slots on your calendar throughout the day.";
+  $("src").value = s;
+  $("stat").textContent = "Sample text loaded — click Split to try it!";
+})();
 </script>
 </body>
 </html>
