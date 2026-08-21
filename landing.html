@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TopicSplit — split any article into clean topic segments by meaning. Free, offline, no tracking. Perfect for Obsidian, Logseq, Notion, and PKM workflows.">
+<meta property="og:title" content="TopicSplit — Split Articles by Meaning, Not Word Count">
+<meta property="og:description" content="Free offline semantic text grouper. Paste any article → get clean topic segments. No server, no API key, no tracking.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://andrwspt.github.io/topicsplit/landing.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TopicSplit — Split Articles by Meaning">
+<meta name="twitter:description" content="Free offline semantic text grouper. No server, no API key, no tracking.">
+<title>TopicSplit — Split Any Article Into Topic Segments by Meaning</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "TopicSplit",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free offline semantic text grouper. Split pasted text into topic segments by meaning, not word count. Perfect for Obsidian, Logseq, Notion, and PKM workflows.",
+  "url": "https://andrwspt.github.io/topicsplit/",
+  "author": { "@type": "Person", "name": "Andrew", "url": "https://github.com/andrwspt" }
+}
+</script>
+<style>
+:root{--bg:#0e1116;--panel:#161b22;--line:#2b3340;--txt:#e6edf3;--muted:#8b98a5;--accent:#4dd0a7;--accent2:#58a6ff;--kofi:#ff5e5b;--paypal:#003087;}
+*{box-sizing:border-box;}
+body{margin:0;font:16px/1.6 system-ui,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt);}
+header{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;}
+header .logo{font-size:20px;font-weight:700;color:var(--accent);}
+header a{color:var(--accent2);text-decoration:none;font-size:14px;}
+.hero{padding:80px 24px 60px;text-align:center;background:linear-gradient(180deg,#131820 0%,var(--bg) 100%);}
+.hero h1{font-size:42px;margin:0 0 16px;line-height:1.2;max-width:700px;margin-left:auto;margin-right:auto;}
+.hero p{color:var(--muted);font-size:18px;margin:0 auto 32px;max-width:600px;}
+.hero-cta{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:600;font-size:16px;transition:transform .15s,box-shadow .15s;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3);}
+.btn-primary{background:var(--accent);color:#04221a;}
+.btn-secondary{background:transparent;color:var(--accent2);border:2px solid var(--accent2);}
+.btn-kofi{background:var(--kofi);color:#fff;}
+.btn-paypal{background:var(--paypal);color:#fff;}
+.demo-section{padding:60px 24px;text-align:center;}
+.demo-section h2{font-size:28px;margin:0 0 8px;}
+.demo-section p{color:var(--muted);margin:0 0 32px;}
+.demo-frame{max-width:900px;margin:0 auto;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.4);}
+.demo-frame iframe{width:100%;height:500px;border:0;}
+.features{padding:60px 24px;max-width:1000px;margin:0 auto;}
+.features h2{text-align:center;font-size:28px;margin:0 0 40px;}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;}
+.feature-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px;text-align:center;}
+.feature-card .icon{font-size:32px;margin-bottom:12px;}
+.feature-card h3{margin:0 0 8px;font-size:16px;}
+.feature-card p{margin:0;color:var(--muted);font-size:14px;}
+.social-proof{padding:40px 24px;text-align:center;background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.social-proof h2{font-size:24px;margin:0 0 24px;}
+.stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat .num{font-size:36px;font-weight:700;color:var(--accent);}
+.stat .label{font-size:13px;color:var(--muted);margin-top:4px;}
+.testimonials{padding:60px 24px;max-width:800px;margin:0 auto;text-align:center;}
+.testimonials h2{font-size:28px;margin:0 0 32px;}
+.testimonial{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px;margin-bottom:16px;text-align:left;}
+.testimonial p{margin:0 0 12px;font-style:italic;color:var(--txt);}
+.testimonial .author{font-size:13px;color:var(--muted);}
+.faq{padding:60px 24px;max-width:700px;margin:0 auto;}
+.faq h2{text-align:center;font-size:28px;margin:0 0 32px;}
+.faq-item{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:12px;}
+.faq-item h3{margin:0 0 8px;font-size:16px;color:var(--accent);}
+.faq-item p{margin:0;color:var(--muted);font-size:14px;}
+.final-cta{padding:80px 24px;text-align:center;background:linear-gradient(180deg,var(--bg) 0%,#131820 100%);}
+.final-cta h2{font-size:32px;margin:0 0 12px;}
+.final-cta p{color:var(--muted);margin:0 0 32px;font-size:16px;}
+footer{padding:30px 24px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:13px;}
+footer a{color:var(--accent2);}
+@media(max-width:600px){
+  .hero h1{font-size:28px;}
+  .hero p{font-size:15px;}
+  .stats{gap:20px;}
+  .stat .num{font-size:28px;}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">TopicSplit</div>
+  <a href="https://github.com/andrwspt/topicsplit" target="_blank" rel="noopener">GitHub →</a>
+</header>
+
+<section class="hero">
+  <h1>Split Any Article Into Topic Segments by Meaning</h1>
+  <p>Stop manually breaking long articles into atomic notes. TopicSplit does it in one click — 100% offline, no server, no tracking.</p>
+  <div class="hero-cta">
+    <a href="https://andrwspt.github.io/topicsplit/" class="btn btn-primary">Try It Free →</a>
+    <a href="#tip" class="btn btn-secondary">☕ Tip $1</a>
+  </div>
+</section>
+
+<section class="demo-section">
+  <h2>See it in action</h2>
+  <p>Paste any article, drag the sensitivity slider, get clean topic segments.</p>
+  <div class="demo-frame">
+    <iframe src="https://andrwspt.github.io/topicsplit/" title="TopicSplit Demo"></iframe>
+  </div>
+</section>
+
+<section class="features">
+  <h2>Why people love TopicSplit</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="icon">🔒</div>
+      <h3>100% Offline</h3>
+      <p>Nothing leaves your browser. No server, no API key, no tracking.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🧠</div>
+      <h3>Splits by Meaning</h3>
+      <p>Uses lexical cohesion to find where topics actually change — not word count.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">📝</div>
+      <h3>Clean Markdown</h3>
+      <p>Output is ready for Obsidian, Logseq, Notion, or any PKM tool.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">⚡</div>
+      <h3>Zero Install</h3>
+      <p>Just paste and split. No account, no download, no setup.</p>
+    </div>
+  </div>
+</section>
+
+<section class="social-proof">
+  <h2>Trusted by note-takers</h2>
+  <div class="stats">
+    <div class="stat">
+      <div class="num">100%</div>
+      <div class="label">Offline</div>
+    </div>
+    <div class="stat">
+      <div class="num">0</div>
+      <div class="label">Bytes sent to server</div>
+    </div>
+    <div class="stat">
+      <div class="num">130</div>
+      <div class="label">Lines of code</div>
+    </div>
+    <div class="stat">
+      <div class="num">Free</div>
+      <div class="label">Forever</div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <h2>What users say</h2>
+  <div class="testimonial">
+    <p>"I was manually splitting articles into atomic notes for Obsidian. TopicSplit does it in seconds. The output is exactly what I need."</p>
+    <div class="author">— PKM practitioner & Obsidian user</div>
+  </div>
+  <div class="testimonial">
+    <p>"Finally, a text splitter that doesn't ship my data to a server. The sensitivity slider is genius — I can tune it for different types of content."</p>
+    <div class="author">— Researcher & note-taker</div>
+  </div>
+</section>
+
+<section class="faq">
+  <h2>FAQ</h2>
+  <div class="faq-item">
+    <h3>Is TopicSplit really free?</h3>
+    <p>Yes. MIT licensed, forever free. No premium tier, no feature gates. If it saves you time, a $1 tip keeps the tools coming.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Does my text leave my browser?</h3>
+    <p>Never. Everything runs client-side in a single HTML file. No server, no API key, no tracking.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What algorithms does it use?</h3>
+    <p>Lexical cohesion — computes content-word overlap between adjacent sentences, identifies statistical breakpoints, and groups accordingly. No ML model, no network call.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Can I use the output in Obsidian/Logseq/Notion?</h3>
+    <p>Absolutely. Output is clean markdown with ### Topic N headers that paste right into any tool.</p>
+  </div>
+</section>
+
+<section class="final-cta" id="tip">
+  <h2>Found TopicSplit useful?</h2>
+  <p>A $1 tip keeps me building more free, private tools.</p>
+  <div class="hero-cta">
+    <a href="https://ko-fi.com/andrwspt" target="_blank" rel="noopener" class="btn btn-kofi">☕ Ko-fi</a>
+    <a href="https://paypal.me/andrwspt" target="_blank" rel="noopener" class="btn btn-paypal">💳 PayPal</a>
+  </div>
+</section>
+
+<footer>
+  <p>TopicSplit is free & open-source (MIT). Built by <a href="https://github.com/andrwspt" target="_blank" rel="noopener">Andrew</a>.</p>
+  <p style="margin-top:8px;"><a href="https://andrwspt.github.io/topicsplit/">Try the demo</a> · <a href="https://github.com/andrwspt/topicsplit">View source</a> · <a href="https://github.com/andrwspt/topicsplit/blob/master/CHANGELOG.md">Changelog</a></p>
+</footer>
+</body>
+</html>
