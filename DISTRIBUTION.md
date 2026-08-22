@@ -1,7 +1,30 @@
-# Distribution Kit — TopicSplit v1.2.0
+# Distribution Kit — TopicSplit v1.8.1
 
 > Pre-written copy for sharing TopicSplit. Copy, paste, post.
-> Updated to match v1.2.0 features: sample text button, post-split tip bar.
+> Updated to match v1.8.1 features: auto-demo links, share card, launch page.
+
+---
+
+## Quick Start: Use the Launch Page
+
+**👉 https://andrwspt.github.io/topicsplit/launch.html**
+
+The launch page has:
+- Pre-filled copy for every community (Reddit, HN, Twitter, LinkedIn, Discord)
+- One-click submit buttons for each platform
+- Pre-post checklist with persistence
+- Stats dashboard
+
+**Do this first:** Open the launch page, click the submit buttons, paste the copy.
+
+---
+
+## What's New in v1.8.1
+
+1. **Auto-demo links** — Every shared link uses `?demo=1` so new visitors see the tool working instantly (no blank page)
+2. **Share card** — After splitting, click "Share card" to get a beautiful stats card with topic preview + one-click tweet
+3. **Launch page** — `launch.html` with pre-filled copy for every community
+4. **Stronger CTA** — Value-moment ask: "This split took 0.003s. If it saved you 5 minutes of manual work, a $1 tip..."
 
 ---
 
@@ -10,11 +33,17 @@
 **Title:** [Tool] I built TopicSplit — free offline tool to split text into topic segments by meaning (no server, no API key)
 
 **Body:**
-Hi r/ObsidianMD — I built **TopicSplit** because I kept pasting long articles into Obsidian and manually breaking them into atomic notes. It was tedious.
+Hi r/ObsidianMD — I built TopicSplit because I kept pasting long articles into Obsidian and manually breaking them into atomic notes. It was tedious.
 
 TopicSplit runs 100% in your browser. Paste text, drag a sensitivity slider, and it splits where meaning actually shifts — using lexical cohesion between sentences, not a dumb word-count cutoff. Output is clean `### Topic N` markdown ready for your vault.
 
-**New in v1.2:** Added a "Try with sample text" button so you can demo it instantly without pasting anything.
+**Features:**
+- 🔒 100% offline — nothing leaves your browser
+- ⚡ Zero install — just paste and split
+- 📋 "Try with sample text" button for instant demo
+- 📊 Share card with stats + topic preview
+- 📎 Embeddable widget for your site/blog
+- 🔗 Share buttons (Twitter/LinkedIn/Reddit/Email)
 
 **👉 Live demo:** https://andrwspt.github.io/topicsplit/
 
@@ -105,7 +134,7 @@ TopicSplit runs entirely client-side in a single HTML file. Paste any article/tr
 
 The algorithm: compute content-word overlap between adjacent sentences, identify statistical breakpoints, and group accordingly. No ML model, no network call, ~130 lines of JS.
 
-v1.2 adds a "Try with sample text" button for instant demo without pasting.
+v1.8 adds auto-demo links (shared links show the tool working instantly), shareable result cards, and one-click social sharing.
 
 **Live demo:** https://andrwspt.github.io/topicsplit/
 **Source:** https://github.com/andrwspt/topicsplit
@@ -130,7 +159,7 @@ TopicSplit:
 - Splits by meaning — uses lexical cohesion to find where topics change
 - Exports clean markdown ready for any PKM tool
 - MIT licensed, forever free
-- v1.2: instant "Try with sample text" button
+- v1.8: auto-demo links, shareable result cards, one-click social sharing
 
 **Live demo:** https://andrwspt.github.io/topicsplit/
 
@@ -185,11 +214,11 @@ There's a "Try with sample text" button so you can demo it instantly without pas
 
 ## LinkedIn Post
 
-I just released TopicSplit v1.2 — a free, open-source tool that splits text into topic segments by meaning.
+I just released TopicSplit v1.8 — a free, open-source tool that splits text into topic segments by meaning.
 
 Built for researchers, writers, and PKM practitioners who need to break long articles into atomic notes. Runs 100% offline in the browser — no server, no API key, no account.
 
-v1.2 adds an instant "Try with sample text" button for frictionless demo.
+v1.8 adds auto-demo links, shareable result cards, and one-click social sharing.
 
 Check it out: https://andrwspt.github.io/topicsplit/
 
@@ -215,14 +244,14 @@ If you find it useful, a $1 tip on Ko-fi helps me build more free tools: https:/
 ## YouTube / Video Description
 
 **Description:**
-TopicSplit v1.2 — free offline semantic text grouper
+TopicSplit v1.8 — free offline semantic text grouper
 
 Paste any article, transcript, or notes → get clean topic segments split by meaning. Perfect for Obsidian, Logseq, Notion, and PKM workflows.
 
 🔗 Live demo: https://andrwspt.github.io/topicsplit/
 🔗 Source: https://github.com/andrwspt/topicsplit
 
-v1.2 features: instant "Try with sample text" button, post-split tip prompt.
+v1.8 features: auto-demo links, shareable result cards, one-click social sharing.
 
 If it helps you, a $1 tip keeps the tools coming:
 ☕ Ko-fi: https://ko-fi.com/andrwspt
@@ -241,7 +270,7 @@ No server. No API key. No account. No tracking. Just paste and split.
 
 Built for researchers, writers, and PKM practitioners who need to break long-form content into atomic notes.
 
-v1.2: instant "Try with sample text" button for frictionless demo.
+v1.8: auto-demo links, shareable result cards, one-click social sharing.
 
 **Topics:** Productivity, Open Source, Note-taking, Writing
 
@@ -249,14 +278,14 @@ v1.2: instant "Try with sample text" button for frictionless demo.
 
 ## Zettelkasten.de Forum
 
-**Title:** TopicSplit v1.2 — free offline tool to split text into topic segments by meaning
+**Title:** TopicSplit v1.8 — free offline tool to split text into topic segments by meaning
 
 **Body:**
 I built TopicSplit to help with the atomization step — breaking long articles into topic-based segments for the Zettelkasten.
 
 It runs entirely in the browser (no server, no API key), uses lexical cohesion to find where topics change, and exports clean markdown.
 
-v1.2 adds a "Try with sample text" button so you can demo it instantly.
+v1.8 adds auto-demo links and shareable result cards.
 
 Might be useful for others in this community.
 
@@ -301,11 +330,12 @@ Might be useful for others in this community.
 
 ## Conversion Optimization
 
-The v1.2.0 update adds two conversion-focused features:
+The v1.8.1 update adds three conversion-focused features:
 
-1. **"Try with sample text" button** — removes the "what do I paste?" friction. Visitors can see the tool work in 2 seconds.
-2. **Post-split tip bar** — appears only after a successful split, right at the moment the user perceives value. Links directly to Ko-fi.
+1. **Auto-demo links** — Every shared link uses `?demo=1` so new visitors see the tool working instantly. No blank page, no "what do I paste?" friction.
+2. **Share card** — After splitting, users can generate a beautiful stats card (segments/sentences/words) with topic preview. One-click tweet or copy.
+3. **Value-moment CTA** — After a split, the CTA says "This split took 0.003s. If it saved you 5 minutes of manual work, a $1 tip..." — concrete, timely, gratitude-based.
 
-The Ko-fi and PayPal buttons remain in the footer for passive discovery.
+The Ko-fi and PayPal buttons remain in the footer and sticky bar for passive discovery.
 
 **Goal:** Every visitor either tips $1 or shares the link. The tool is free; the ask is tiny.
