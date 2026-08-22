@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Launch Page — TopicSplit</title>
+<style>
+:root{--bg:#0e1116;--panel:#161b22;--line:#2b3340;--txt:#e6edf3;--muted:#8b98a5;--accent:#4dd0a7;--accent2:#58a6ff;--warning:#f0883e;--good:#3fb950;--kofi:#ff5e5b;--paypal:#003087}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt)}
+header{padding:18px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
+header h1{margin:0;font-size:18px}
+header .tag{color:var(--muted);font-size:13px}
+header .spacer{flex:1}
+.wrap{max-width:800px;margin:0 auto;padding:24px}
+.hero{text-align:center;padding:30px 20px 24px;border-bottom:1px solid var(--line)}
+.hero h2{font-size:26px;margin:0 0 8px}
+.hero p{color:var(--muted);font-size:14px;margin:0 auto;max-width:560px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;transition:transform .15s;border:0;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn-accent{background:var(--accent);color:#04221a}
+.btn-ghost{background:transparent;color:var(--accent2);border:1px solid var(--accent2)}
+.btn-submit{color:#fff;border:0;border-radius:6px;padding:7px 14px;font-size:13px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.submit-btn:hover{transform:scale(1.05)}
+.submit-btn.reddit{background:#ff4500}
+.submit-btn.hn{background:#ff6600}
+.submit-btn.twitter{background:#1da1f2}
+.section{margin:28px 0}
+.section h2{font-size:18px;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+.section h2 .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#04221a;font-weight:700;font-size:13px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:10px}
+.card h3{margin:0 0 4px;font-size:15px}
+.card p{color:var(--muted);font-size:13px;margin:0 0 8px}
+.copy-box{background:#0b0e13;border:1px solid var(--line);border-radius:6px;padding:10px;font-size:12px;font-family:ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word;max-height:100px;overflow:auto;margin-bottom:8px}
+.card .actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.copy-btn{background:transparent;color:var(--accent);border:1px solid var(--accent);border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer}
+.copy-btn:hover{background:var(--accent);color:#04221a}
+.checklist{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.checklist label{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.checklist label:last-child{border-bottom:0}
+.checklist input[type=checkbox]{margin-top:3px;accent-color:var(--accent)}
+.checklist .done{text-decoration:line-through;color:var(--muted)}
+.alert{background:rgba(240,136,62,.12);border:1px solid var(--warning);border-radius:8px;padding:12px;margin-bottom:20px;font-size:13px}
+.alert strong{color:var(--warning)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:24px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px;text-align:center}
+.stat .num{font-size:22px;font-weight:700;color:var(--accent)}
+.stat .label{font-size:11px;color:var(--muted);margin-top:2px}
+footer{padding:20px 24px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:12px}
+footer a{color:var(--accent2)}
+</style>
+</head>
+<body>
+<header>
+<h1>TopicSplit</h1>
+<span class="tag">Launch checklist & one-click distribution</span>
+<span class="spacer"></span>
+<a href="https://andrwspt.github.io/topicsplit/" class="btn btn-ghost">← Back to app</a>
+</header>
+
+<div class="hero">
+<h2>Launch Execution Page</h2>
+<p>Everything you need to distribute TopicSplit and earn the first $1. Click submit buttons, paste copied copy, done.</p>
+</div>
+
+<div class="wrap">
+
+<div class="stats">
+<div class="stat"><div class="num">0</div><div class="label">Ko-fi earned</div></div>
+<div class="stat"><div class="num">19</div><div class="label">Demo views (7d)</div></div>
+<div class="stat"><div class="num">4</div><div class="label">Unique visitors</div></div>
+<div class="stat"><div class="num">?</div><div class="label">Submissions today</div></div>
+</div>
+
+<div class="alert">⏰ <strong>Best posting window:</strong> Tuesday–Thursday, 8–11 AM US Eastern. Posts in this window get 3–5× more traction.</div>
+
+<div class="section">
+<h2><span class="num">1</span> Tier 1 — Post These Today</h2>
+
+<div class="card">
+<h3>r/ObsidianMD (167k members) — Primary</h3>
+<p>Active, tool-friendly community. Obsidian users love workflow tools.</p>
+<div class="copy-box" id="c1t">[Tool] I built TopicSplit — free offline tool to split text into topic segments by meaning (no server, no API key)</div>
+<div class="copy-box" id="c1b">Hi r/ObsidianMD — I built TopicSplit because I kept pasting long articles into Obsidian and manually breaking them into atomic notes.
+
+TopicSplit runs 100% in your browser. Paste text, drag a sensitivity slider, and it splits where meaning actually shifts — using lexical cohesion between sentences, not word-count. Output is clean markdown with ### Topic N headers ready for your vault.
+
+Features: 100% offline, sample text try-it-now, embeddable widget, share buttons.
+
+Live demo: https://andrwspt.github.io/topicsplit/
+
+MIT licensed, forever free. If it saves you time, a $1 Ko-fi tip keeps me building: https://ko-fi.com/andrwspt</div>
+<div class="actions">
+<button class="copy-btn" onclick="copyEl('c1t')">Copy title</button>
+<button class="copy-btn" onclick="copyEl('c1b')">Copy body</button>
+<a href="https://www.reddit.com/r/ObsidianMD/submit" target="_blank" rel="noopener" class="btn-submit reddit">Open r/ObsidianMD →</a>
+</div>
+</div>
+
+<div class="card">
+<h3>r/Logseq (38k members)</h3>
+<p>PKM-focused, loves Zettelkasten and atomization workflows.</p>
+<div class="copy-box" id="c2t">[Tool] Free offline text grouper — split articles into topic-based blocks for Logseq</div>
+<div class="copy-box" id="c2b">Hey r/Logseq — sharing a tool for the atomization step of Zettelkasten/PKM.
+
+TopicSplit groups pasted text into topic segments by meaning. No server, no API key, no account. Output is clean markdown with ### Topic N headers for your journal.
+
+Live demo: https://andrwspt.github.io/topicsplit/
+
+Try the sample text button for instant demo. Free & MIT licensed. $1 Ko-fi: https://ko-fi.com/andrwspt</div>
+<div class="actions">
+<button class="copy-btn" onclick="copyEl('c2t')">Copy title</button>
+<button class="copy-btn" onclick="copyEl('c2b')">Copy body</button>
+<a href="https://www.reddit.com/r/Logseq/submit" target="_blank" rel="noopener" class="btn-submit reddit">Open r/Logseq →</a>
+</div>
+</div>
+
+<div class="card">
+<h3>Hacker News — Show HN</h3>
+<p>Massive tech audience. Must be a weekday morning for traction.</p>
+<div class="copy-box" id="c3t">Show HN: TopicSplit — free offline semantic text grouper (no server, no API key)</div>
+<div class="copy-box" id="c3b">I built TopicSplit for splitting long articles into atomic notes. Most tools need an account and ship text to a server.
+
+TopicSplit runs entirely client-side. Paste text → drag slider → get clean markdown split by lexical cohesion (content-word overlap between sentences). No ML, no network call, ~130 lines of JS.
+
+Live demo: https://andrwspt.github.io/topicsplit/
+Source: https://github.com/andrwspt/topicsplit
+
+MIT licensed. Feedback welcome.</div>
+<div class="actions">
+<button class="copy-btn" onclick="copyEl('c3t')">Copy title</button>
+<button class="copy-btn" onclick="copyEl('c3b')">Copy body</button>
+<a href="https://news.ycombinator.com/submit" target="_blank" rel="noopener" class="btn-submit hn">Open HN submit →</a>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2><span class="num">2</span> Tier 2 — Post If Time</h2>
+
+<div class="card">
+<h3>r/Zettelkasten + r/PKMS + r/productivity</h3>
+<p>Smaller communities but highly targeted. Same copy works with minor tweaks.</p>
+<div class="copy-box" id="c4b">I built TopicSplit to solve atomization — breaking source material into topic-based notes.
+
+Most tools ship data to a server or split by word count. TopicSplit uses lexical cohesion to find where meaning shifts. 100% in browser, exports clean markdown.
+
+https://andrwspt.github.io/topicsplit/
+
+MIT licensed. $1 Ko-fi supports more free tools: https://ko-fi.com/andrwspt</div>
+<div class="actions">
+<button class="copy-btn" onclick="copyEl('c4b')">Copy body</button>
+<a href="https://www.reddit.com/r/Zettelkasten/submit" target="_blank" rel="noopener" class="btn-submit reddit">r/Zettelkasten →</a>
+<a href="https://www.reddit.com/r/PKMS/submit" target="_blank" rel="noopener" class="btn-submit reddit">r/PKMS →</a>
+<a href="https://www.reddit.com/r/productivity/submit" target="_blank" rel="noopener" class="btn-submit reddit">r/productivity →</a>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2><span class="num">3</span> Tier 3 — Social Blast</h2>
+
+<div class="card">
+<h3>Twitter/X + LinkedIn</h3>
+<div class="copy-box" id="c5t">I built TopicSplit — a free, offline tool that splits text into topic segments by meaning, not word count. No server, no API key, no account. Perfect for Obsidian, Logseq, Notion, PKM. Try it: https://andrwspt.github.io/topicsplit/ #PKM #Obsidian #Logseq #Notion</div>
+<div class="actions">
+<button class="copy-btn" onclick="copyEl('c5t')">Copy tweet</button>
+<a href="https://twitter.com/intent/tweet?text=I%20built%20TopicSplit%20%E2%80%94%20free%20offline%20tool%20that%20splits%20text%20into%20topic%20segments%20by%20meaning.%20No%20server%2C%20no%20API%20key%2C%20no%20account.%20https%3A%2F%2Fandrwspt.github.io%2Ftopicsplit%2F%20%23PKM%20%23Obsidian%20%23Logseq" target="_blank" rel="noopener" class="btn-submit twitter">Tweet →</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fandrwspt.github.io%2Ftopicsplit%2F" target="_blank" rel="noopener" class="btn-submit" style="background:#0077b5">LinkedIn →</a>
+</div>
+</div>
+
+<div class="card">
+<h3>Discord / Slack</h3>
+<div class="copy-box" id="c6d">Hey — I built TopicSplit, a free offline tool that splits text into topic segments by meaning. Perfect for breaking articles into atomic notes. No server, no API key, no tracking. Try it: https://andrwspt.github.io/topicsplit/</div>
+<div class="actions">
+<button class="copy-btn" onclick="copyEl('c6d')">Copy message</button>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2><span class="num">✓</span> Pre-Post Checklist</h2>
+<div class="checklist">
+<label><input type="checkbox" data-key="ts1"> Engage with 3–5 posts BEFORE posting (90/10 rule)</label>
+<label><input type="checkbox" data-key="ts2"> Check subreddit self-promo rules</label>
+<label><input type="checkbox" data-key="ts3"> Post Tue–Thu, 8–11 AM US Eastern</label>
+<label><input type="checkbox" data-key="ts4"> Reply to every comment within 30 min</label>
+<label><input type="checkbox" data-key="ts5"> Share link in Discord communities</label>
+<label><input type="checkbox" data-key="ts6"> Check Ko-fi dashboard after 2 hours</label>
+<label><input type="checkbox" data-key="ts7"> Check repo traffic after 24 hours</label>
+</div>
+</div>
+
+</div>
+
+<footer>
+<div>TopicSplit — MIT licensed · <a href="https://ko-fi.com/andrwspt">Ko-fi</a> · <a href="https://paypal.me/andrwspt">PayPal</a></div>
+</footer>
+
+<script>
+function copyEl(id){
+  const el = document.getElementById(id);
+  const text = el.textContent || el.innerText;
+  navigator.clipboard.writeText(text);
+  el.style.background = "rgba(77,208,167,0.3)";
+  setTimeout(() => { el.style.background = ""; }, 500);
+}
+
+// Checklist persistence
+document.querySelectorAll('.checklist input[type=checkbox]').forEach(cb => {
+  const key = 'ts-check-' + cb.dataset.key;
+  if (localStorage.getItem(key) === '1') cb.checked = true;
+  cb.addEventListener('change', () => {
+    if (cb.checked) {
+      localStorage.setItem(key, '1');
+      cb.parentElement.classList.add('done');
+    } else {
+      localStorage.removeItem(key);
+      cb.parentElement.classList.remove('done');
+    }
+  });
+  if (cb.checked) cb.parentElement.classList.add('done');
+});
+</script>
+</body>
+</html>

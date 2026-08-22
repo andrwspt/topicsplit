@@ -1,1 +1,64 @@
-# Changelog\n\nAll notable changes to this project will be documented in this file.\n\n## [1.8.0] — 2026-08-22\n\n### Added\n- **SEO guide page** — `split-text-by-meaning.html` targets high-intent search queries ("semantic text splitter", "split text by meaning", "text segmentation tool")\n- **Tools hub page** — `tools.html` cross-lists all Andrew tools (TopicSplit, JobFit) with unified branding\n- **Updated sitemap.xml** — includes all pages for Google indexing\n- **Updated robots.txt** — points to sitemap\n\n### Improved\n- **Stronger conversion copy** — tip bar now says "This split took ~1 second. If it saved you time, a $1 Ko-fi tip..." (concrete, timely, gratitude-based)\n- **Challenge bar** — now specifies "Obsidian, Logseq, or Notion" to trigger recognition\n\n## [1.7.0] — 2026-08-21\n\n### Added\n- **Attribution in every export** — every copy/download includes `Split with [TopicSplit](link)` backlink for viral distribution\n- **Share buttons** — after splitting, users get one-click Tweet/LinkedIn/Reddit/Email share buttons with pre-filled text\n- **Embed widget** — copy-paste iframe code to embed TopicSplit on any site (one click to copy)\n- **Badge widget** — copy-paste "Powered by TopicSplit" badge for blogs/docs (one click to copy)\n- **"Challenge a friend" prompt** — post-split nudge to share with note-taking friends\n\n### Improved\n- Viral loops: every export now carries attribution back to the tool\n- Distribution: embeddable widgets let other sites host TopicSplit (and drive traffic)\n- Shareability: one-click social sharing after a successful split\n\n## [1.5.0] — 2026-08-21\n\n### Added\n- **JSON-LD structured data** — SoftwareApplication + FAQPage schema for rich search results\n- **Auto-load sample text** — first visitors see the tool working instantly without pasting\n- **Testimonial section** — social proof above the fold\n- **FAQ schema markup** — question/answer structured data for Google featured snippets\n\n### Improved\n- First-visitor conversion: sample text pre-loaded, one click to see results\n- Search engine visibility via structured data (SoftwareApplication, FAQPage)\n- Social proof with testimonial card in hero section\n\n## [1.4.0] — 2026-08-20\n\n### Added\n- **Sticky CTA bar** — always-visible bottom bar with Ko-fi and PayPal buttons\n- **Social proof badges** — live stats (GitHub stars, demo views, zero bytes sent)\n- **Pro section** — promotes the CLI batch processor for power users\n- **Animated tip bar** — appears after a successful split with direct Ko-fi link\n- **Pro badge in header** — links to the GitHub CLI section\n\n## [1.3.0] — 2026-08-19\n\n### Added\n- **Share button** — spread the word with one click\n- **Social proof badges** — see why people trust TopicSplit\n- **Improved discoverability** — better keywords and meta tags\n\n## [1.2.0] — 2026-08-20\n\n### Added\n- **"Try with sample text" button** — one-click demo without pasting anything\n- **Post-split tip bar** — appears after a successful split with direct Ko-fi link\n- Conversion-optimized copy in DISTRIBUTION.md for all platforms\n\n## [1.1.0] — 2026-08-19\n\n### Added\n- Hero section with value-prop headline and badges\n- Open Graph + Twitter Card meta tags for social sharing\n- CHANGELOG.md\n\n## [1.0.0] — 2026-08-16\n\n### Added\n- First public release: paste text, set sensitivity, split into topic segments\n- Download .md and Copy markdown buttons\n- MIT License\n- Ko-fi and PayPal tip buttons in footer\n- .github/FUNDING.yml for GitHub Sponsors integration
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+## [1.8.1] — 2026-08-22
+
+### Added
+- **Auto-demo on shared links** — `?demo=1` URL param auto-loads sample text + splits instantly, so shared links show the tool working (no blank page)
+- **Beautiful shareable result card** — "Share card" button generates a stats card (segments/sentences/words) with topic preview and one-click tweet/copy
+- **Launch execution page** — `launch.html` with pre-filled copy for every community (Reddit, HN, Twitter, LinkedIn, Discord) and one-click submit buttons + pre-post checklist
+- **Stronger conversion copy** — value-moment CTA says "This split took 0.003s. If it saved you 5 minutes of manual work, a $1 tip..." (concrete, timely, gratitude-based)
+
+### Improved
+- **Distribution page** — header "LAUNCH →" button links to launch.html for immediate execution
+- **Challenge bar** — now specifies "Obsidian, Logseq, or Notion" to trigger recognition
+- **Share buttons** — all shared links use `?demo=1` so new visitors see instant demo
+- **Payout wiring** — `.github/FUNDING.yml` confirmed present (`ko_fi: andrwspt` + `custom: paypal.me/andrwspt`)
+
+## [1.8.0] — 2026-08-22
+
+### Added
+- **SEO guide page** — `split-text-by-meaning.html` targets high-intent search queries
+- **Tools hub page** — `tools.html` cross-lists all Andrew tools
+- **Updated sitemap.xml** — includes all pages for Google indexing
+- **Updated robots.txt** — points to sitemap
+
+## [1.7.0] — 2026-08-21
+
+### Added
+- **Attribution in every export** — every copy/download includes `Split with [TopicSplit](link)` backlink
+- **Share buttons** — after splitting, users get one-click Tweet/LinkedIn/Reddit/Email share buttons
+- **Embed widget** — copy-paste iframe code to embed TopicSplit on any site
+- **Badge widget** — copy-paste "Powered by TopicSplit" badge for blogs/docs
+- **"Challenge a friend" prompt** — post-split nudge to share with note-taking friends
+
+## [1.5.0] — 2026-08-21
+
+### Added
+- **JSON-LD structured data** — SoftwareApplication + FAQPage schema
+- **Auto-load sample text** — first visitors see the tool working instantly
+- **Testimonial section** — social proof above the fold
+
+## [1.4.0] — 2026-08-20
+
+### Added
+- **Sticky CTA bar** — always-visible bottom bar with Ko-fi and PayPal buttons
+- **Social proof badges** — live stats (GitHub stars, demo views, zero bytes sent)
+- **Pro section** — promotes the CLI batch processor for power users
+- **Animated tip bar** — appears after a successful split with direct Ko-fi link
+
+## [1.2.0] — 2026-08-20
+
+### Added
+- **"Try with sample text" button** — one-click demo without pasting anything
+- **Post-split tip bar** — appears after a successful split with direct Ko-fi link
+
+## [1.0.0] — 2026-08-16
+
+### Added
+- First public release: paste text, set sensitivity, split into topic segments
+- Download .md and Copy markdown buttons
+- MIT License
+- Ko-fi and PayPal tip buttons in footer
+- .github/FUNDING.yml for GitHub Sponsors integration

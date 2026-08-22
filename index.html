@@ -8,17 +8,18 @@
 <meta property="og:description" content="Free offline semantic text grouper. Paste any article, transcript, or notes → get clean topic segments. No server, no API key, no tracking.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://andrwspt.github.io/topicsplit/">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="TopicSplit — split text by meaning, offline">
-<meta name="twitter:description" content="Free offline semantic text grouper. No server, no API key, no tracking.">
+<meta name="twitter:description" content="Free offline semantic text grouper. No server, no API key, no tracking. Paste once, get clean topic segments.">
 <title>TopicSplit — offline semantic text grouper</title>
 <style>
   :root { --bg:#0e1116; --panel:#161b22; --line:#2b3340; --txt:#e6edf3; --muted:#8b98a5; --accent:#4dd0a7; --accent2:#58a6ff; --kofi:#ff5e5b; --paypal:#003087; }
   * { box-sizing: border-box; }
-  body { margin:0; font:15px/1.5 system-ui,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--txt); padding-bottom:70px; }
+  body { margin:0; font:15px/1.5 system-ui,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--txt); padding-bottom:80px; }
   header { padding:18px 22px; border-bottom:1px solid var(--line); display:flex; align-items:center; gap:14px; }
   header h1 { font-size:18px; margin:0; }
   header .tag { color:var(--muted); font-size:13px; }
+  header .spacer { flex:1; }
   .wrap { display:grid; grid-template-columns:1fr 1fr; gap:14px; padding:16px; }
   @media(max-width:820px){ .wrap{ grid-template-columns:1fr; } }
   .panel { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px; }
@@ -29,6 +30,7 @@
   input[type=range]{ accent-color:var(--accent); }
   button { background:var(--accent); color:#04221a; border:0; border-radius:8px; padding:9px 14px; font-weight:600; cursor:pointer; }
   button.sec { background:transparent; color:var(--accent2); border:1px solid var(--accent2); }
+  button.kofi-btn { background:var(--kofi); color:#fff; }
   .meta { color:var(--muted); font-size:12px; margin-top:8px; }
   footer { padding:14px 22px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; text-align:center; }
   a { color:var(--accent2); }
@@ -78,13 +80,36 @@
   .landing-links { display:flex; justify-content:center; gap:12px; margin:16px 0; flex-wrap:wrap; }
   .landing-links a { font-size:12px; color:var(--accent2); text-decoration:none; padding:4px 10px; border:1px solid var(--line); border-radius:6px; }
   .landing-links a:hover { border-color:var(--accent2); }
+  .testimonial { max-width:700px; margin:0 auto; padding:16px 22px; text-align:center; font-style:italic; color:var(--muted); }
+  .testimonial .author { font-style:normal; font-size:11px; margin-top:8px; }
+  .tip-jar { max-width:500px; margin:0 auto; padding:20px 16px; text-align:center; }
+  .tip-jar h3 { margin:0 0 8px; }
+  .tip-jar p { color:var(--muted); font-size:14px; margin:0 0 14px; }
+  .cta-card { background:linear-gradient(135deg,#1a2332 0%,#131820 100%); border:1px solid var(--accent); border-radius:12px; padding:20px; margin-top:16px; text-align:center; display:none; }
+  .cta-card h4 { margin:0 0 6px; color:var(--accent); }
+  .cta-card p { color:var(--muted); font-size:13px; margin:0 0 12px; }
+  .cta-card .small { font-size:11px; color:var(--muted); margin-top:8px; }
+  .digest-card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px; margin-top:14px; display:none; }
+  .digest-card h4 { margin:0 0 10px; color:var(--accent); }
+  .digest-card .stat-row { display:flex; gap:18px; justify-content:center; margin-bottom:10px; flex-wrap:wrap; }
+  .digest-card .stat { text-align:center; }
+  .digest-card .stat .num { font-size:24px; font-weight:700; color:var(--accent); }
+  .digest-card .stat .label { font-size:11px; color:var(--muted); }
+  .digest-card .topic-list { font-size:13px; margin:10px 0; }
+  .digest-card .topic-item { padding:4px 0; border-bottom:1px solid var(--line); }
+  .digest-card .topic-item:last-child { border-bottom:0; }
+  .digest-card .topic-item strong { color:var(--accent); }
+  .digest-card .attrib { font-size:11px; color:var(--muted); margin-top:10px; text-align:center; }
+  .success-pulse { animation:pulse .6s ease; }
+  @keyframes pulse { 0%{transform:scale(1)} 50%{transform:scale(1.02)} 100%{transform:scale(1)} }
 </style>
 </head>
 <body>
 <header>
   <h1>TopicSplit</h1>
   <span class="tag">Offline semantic text grouper · no server · no tracking</span>
-  <a href="#pro" class="pro-badge" style="text-decoration:none;">PRO CLI →</a>
+  <span class="spacer"></span>
+  <a href="launch.html" class="pro-badge" style="text-decoration:none;background:var(--warning);color:#fff;">LAUNCH →</a>
 </header>
 
 <div class="hero">
@@ -96,7 +121,7 @@
     <span class="badge">💰 <strong>Free</strong> — MIT licensed, forever</span>
   </div>
   <div class="social-proof">
-    <span>⭐ <strong>1</strong> GitHub star</span>
+    <span>⭐ <strong id="starCount">1</strong> GitHub star</span>
     <span>👀 <strong>19</strong> demo views</span>
     <span>🔒 <strong>0</strong> bytes sent to server</span>
   </div>
@@ -104,6 +129,7 @@
     <a href="obsidian.html">For Obsidian →</a>
     <a href="logseq.html">For Logseq →</a>
     <a href="blog.html">Blog</a>
+    <a href="split-text-by-meaning.html">Learn more →</a>
     <a href="https://github.com/andrwspt/obsidian-topic-split" target="_blank" rel="noopener">Obsidian Plugin →</a>
   </div>
 </div>
@@ -131,12 +157,12 @@
     </div>
     <div class="controls">
       <button id="sample" class="sec" style="font-size:12px;padding:4px 10px;">📋 Try with sample text</button>
-      <button id="digest" class="sec" style="font-size:12px;padding:4px 10px;">📊 Digest</button>
-      <button id="share" class="sec" style="font-size:12px;padding:4px 10px;">🔗 Share</button>
+      <button id="digestBtn" class="sec" style="font-size:12px;padding:4px 10px;">📊 Share card</button>
+      <button id="share" class="sec" style="font-size:12px;padding:4px 10px;">🔗 Share link</button>
     </div>
     <div class="meta" id="stat">Ready.</div>
-    <div class="tip-bar" id="tipbar">❤️ This split took ~1 second. If it saved you time, <a href="https://ko-fi.com/andrwspt" target="_blank" rel="noopener">a $1 Ko-fi tip</a> or <a href="https://paypal.me/andrwspt" target="_blank" rel="noopener">PayPal</a> keeps me building free, private tools. Thank you!</div>
-    <div class="challenge-bar" id="challenge">💡 Know someone who takes notes? <a href="#" id="sendFriend">Send them TopicSplit</a> — it's free.</div>
+    <div class="tip-bar" id="tipbar"></div>
+    <div class="challenge-bar" id="challenge">💡 Know someone who uses <strong>Obsidian, Logseq, or Notion</strong>? <a href="#" id="sendFriend">Send them TopicSplit</a> — free, no install, solves a real problem.</div>
   </div>
 
   <div class="panel">
@@ -147,6 +173,29 @@
       <a href="#" id="linkedinResult" class="share-linkedin" target="_blank" rel="noopener">💼 LinkedIn</a>
       <a href="#" id="redditResult" class="share-reddit" target="_blank" rel="noopener">📰 Reddit</a>
       <a href="#" id="emailResult" class="share-email">📧 Email</a>
+    </div>
+    <div class="cta-card" id="ctaCard">
+      <h4>❤️ This split took <span id="splitTime">~1 second</span></h4>
+      <p>If it saved you 5 minutes of manual work, a $1 tip keeps me building free, private tools like this.</p>
+      <div class="cta" style="margin-top:8px;">
+        <a href="https://ko-fi.com/andrwspt" target="_blank" rel="noopener" class="kofi">☕ Tip $1 Ko-fi</a>
+        <a href="https://paypal.me/andrwspt" target="_blank" rel="noopener" class="paypal">💳 PayPal</a>
+      </div>
+      <div class="small">100% of tips fund the next free tool. Thank you for supporting independent open-source.</div>
+    </div>
+    <div class="digest-card" id="digestCard">
+      <h4>📊 Share this result card</h4>
+      <div class="stat-row">
+        <div class="stat"><div class="num" id="digestSegs">0</div><div class="label">segments</div></div>
+        <div class="stat"><div class="num" id="digestSents">0</div><div class="label">sentences</div></div>
+        <div class="stat"><div class="num" id="digestWords">0</div><div class="label">words</div></div>
+      </div>
+      <div class="topic-list" id="digestTopics"></div>
+      <div class="attrib">Split with <a href="https://andrwspt.github.io/topicsplit/" target="_blank" rel="noopener">TopicSplit</a> — free, offline, no tracking</div>
+      <div class="cta" style="margin-top:10px;">
+        <button id="copyDigest" class="sec" style="font-size:12px;padding:5px 10px;">Copy card text</button>
+        <button id="tweetDigest" style="font-size:12px;padding:5px 10px;">🐦 Tweet card</button>
+      </div>
     </div>
   </div>
 </div>
@@ -223,7 +272,7 @@ function overlap(a,b){
   let inter=0; for(const w of sa) if(sb.has(w)) inter++;
   return inter/(Math.sqrt(sa.size*sb.size)||1);
 }
-function split(text, sens, skipTiny){
+function splitText(text, sens, skipTiny){
   const sents = sentences(text);
   if(sents.length<2) return sents;
   const ws = sents.map(words);
@@ -239,7 +288,7 @@ function split(text, sens, skipTiny){
   }
   segs.push(cur.join(" "));
   if(skipTiny){
-    const out=[]; let buf="";
+    const out=[];
     for(const g of segs){
       if(g.split(/\s+/).length < 6 && out.length){ out[out.length-1]+=" "+g; }
       else out.push(g);
@@ -254,59 +303,112 @@ function render(segs){
   return body + attrib;
 }
 const $ = id=>document.getElementById(id);
+
+// Track split time
+let splitStartTime = 0;
 $("sens").oninput = e=>$("sensval").textContent=e.target.value;
+
+// Sample text
+const SAMPLE_TEXT = "The Pomodoro Technique is a time management method that uses a timer to break work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for tomato, after the tomato-shaped kitchen timer that Cirillo used as a university student. The technique is based on the idea that frequent breaks can improve mental agility and reduce fatigue. To use the technique, you choose a task, set a timer for 25 minutes, work until the timer rings, then take a 5-minute break. After four pomodoros, take a longer break of 15-30 minutes. Many people find this method helps them maintain focus and avoid burnout. However, critics argue that the rigid time structure may not suit all types of work, particularly creative tasks that require longer periods of uninterrupted flow. Some researchers suggest that individual differences in attention span mean that optimal work intervals vary from person to person. Alternatives include the 52-17 rule, where you work for 52 minutes and rest for 17, based on data from productivity tracking apps. Time blocking is another approach, where you schedule specific tasks into fixed slots on your calendar throughout the day.";
+
 $("sample").onclick = ()=>{
-  const s = "The Pomodoro Technique is a time management method that uses a timer to break work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for tomato, after the tomato-shaped kitchen timer that Cirillo used as a university student. The technique is based on the idea that frequent breaks can improve mental agility and reduce fatigue. To use the technique, you choose a task, set a timer for 25 minutes, work until the timer rings, then take a 5-minute break. After four pomodoros, take a longer break of 15-30 minutes. Many people find this method helps them maintain focus and avoid burnout. However, critics argue that the rigid time structure may not suit all types of work, particularly creative tasks that require longer periods of uninterrupted flow. Some researchers suggest that individual differences in attention span mean that optimal work intervals vary from person to person. Alternatives include the 52-17 rule, where you work for 52 minutes and rest for 17, based on data from productivity tracking apps. Time blocking is another approach, where you schedule specific tasks into fixed slots on your calendar throughout the day.";
-  $("src").value = s;
+  $("src").value = SAMPLE_TEXT;
   $("stat").textContent = "Sample text loaded. Click Split to try it.";
   $("tipbar").style.display="none";
+  $("ctaCard").style.display="none";
+  $("challenge").style.display="none";
+  $("shareRow").style.display="none";
+  $("digestCard").style.display="none";
 };
+
 $("copy").onclick = ()=>{ navigator.clipboard.writeText($("out").textContent); $("stat").textContent="Markdown copied — attribution link included!"; };
-$("digest").onclick = ()=>{
-  const segs = split($("src").value.trim(), +$("sens").value, $("minlen").checked);
-  if(segs.length < 2){ $("stat").textContent="Split first, then digest."; return; }
-  const u = "https://andrwspt.github.io/topicsplit/";
-  const lines = segs.map((g,i)=>`Topic ${i+1}: ${g.split(/\s+/).slice(0,8).join(" ")}...`);
-  const card = `📊 TopicSplit Digest\n\n${lines.join("\n")}\n\nSplit with TopicSplit — free, offline, no tracking:\n${u}`;
-  if(navigator.share){navigator.share({title:"TopicSplit Digest",text:card});}
-  else{navigator.clipboard.writeText(card);$("stat").textContent="Digest card copied!";}
+
+// Share button — share link with demo param
+$("share").onclick = ()=>{
+  const u = "https://andrwspt.github.io/topicsplit/?demo=1";
+  const msg = "I just split text into topic segments with TopicSplit — free, offline, no tracking. Try it:";
+  if(navigator.share){navigator.share({title:"TopicSplit — free text grouper",text:msg,url:u});}
+  else{navigator.clipboard.writeText(u);$("stat").textContent="Demo link copied! Paste anywhere.";}
 };
-$("share").onclick = ()=>{ const u="https://andrwspt.github.io/topicsplit/"; if(navigator.share){navigator.share({title:"TopicSplit — split text by meaning",url:u});}else{navigator.clipboard.writeText(u);$("stat").textContent="Link copied!"} };
+
 $("dl").onclick = ()=>{
   const blob=new Blob([$("out").textContent],{type:"text/markdown"});
   const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="topicsplit.md"; a.click();
 };
 
-// Share buttons for results
-function buildShareLinks(segs){
+// Digest card builder
+$("digestBtn").onclick = ()=>{
+  const segs = splitText($("src").value.trim(), +$("sens").value, $("minlen").checked);
+  if(segs.length < 2){ $("stat").textContent="Split first, then get a share card."; return; }
+  const totalWords = $("src").value.trim().split(/\s+/).length;
+  const totalSents = sentences($("src").value.trim()).length;
+  $("digestSegs").textContent = segs.length;
+  $("digestSents").textContent = totalSents;
+  $("digestWords").textContent = totalWords;
+  $("digestTopics").innerHTML = segs.map((g,i)=>`<div class="topic-item"><strong>Topic ${i+1}:</strong> ${g.split(/\s+/).slice(0,8).join(" ")}...</div>`).join("");
+  $("digestCard").style.display = "block";
+  $("digestCard").scrollIntoView({behavior:"smooth", block:"nearest"});
+};
+
+$("copyDigest").onclick = ()=>{
+  const segs = splitText($("src").value.trim(), +$("sens").value, $("minlen").checked);
+  const totalWords = $("src").value.trim().split(/\s+/).length;
+  const totalSents = sentences($("src").value.trim()).length;
+  const u = "https://andrwspt.github.io/topicsplit/";
+  const lines = segs.map((g,i)=>`Topic ${i+1}: ${g.split(/\s+/).slice(0,8).join(" ")}...`);
+  const card = `📊 TopicSplit Result\n${segs.length} topics · ${totalSents} sentences · ${totalWords} words\n\n${lines.join("\n")}\n\nTry it: ${u}`;
+  navigator.clipboard.writeText(card);
+  $("stat").textContent="Card text copied!";
+};
+
+$("tweetDigest").onclick = ()=>{
+  const segs = splitText($("src").value.trim(), +$("sens").value, $("minlen").checked);
+  const totalWords = $("src").value.trim().split(/\s+/).length;
   const u = "https://andrwspt.github.io/topicsplit/";
   const preview = segs.slice(0,3).map((g,i)=>`Topic ${i+1}: ${g.split(/\s+/).slice(0,6).join(" ")}...`).join("\n");
-  const text = `I just split an article into ${segs.length} topic segments using TopicSplit — free, offline, no tracking.\n\n${preview}\n\nTry it: ${u}`;
+  const text = `I just split ${totalWords} words into ${segs.length} topic segments using TopicSplit — free, offline, no tracking.\n\n${preview}\n\nTry it: ${u}`;
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`,"_blank","noopener");
+};
+
+// Share buttons for results
+function buildShareLinks(segs){
+  const u = "https://andrwspt.github.io/topicsplit/?demo=1";
+  const totalWords = $("src").value.trim().split(/\s+/).length;
+  const preview = segs.slice(0,3).map((g,i)=>`Topic ${i+1}: ${g.split(/\s+/).slice(0,6).join(" ")}...`).join("\n");
+  const text = `I just split ${totalWords} words into ${segs.length} topic segments using TopicSplit — free, offline, no tracking.\n\n${preview}\n\nTry it: ${u}`;
   const encoded = encodeURIComponent(text);
   const urlEnc = encodeURIComponent(u);
-  
+
   $("tweetResult").href = `https://twitter.com/intent/tweet?text=${encoded}`;
   $("linkedinResult").href = `https://www.linkedin.com/sharing/share-offsite/?url=${urlEnc}`;
-  $("redditResult").href = `https://reddit.com/submit?url=${urlEnc}&title=${encodeURIComponent("I split an article into topic segments using TopicSplit — free, offline, no tracking")}`;
+  $("redditResult").href = `https://reddit.com/submit?url=${urlEnc}&title=${encodeURIComponent("I split text into topic segments using TopicSplit — free, offline, no tracking")}`;
   $("emailResult").href = `mailto:?subject=${encodeURIComponent("Check out TopicSplit — free offline text grouper")}&body=${encoded}`;
 }
 
-// Challenge a friend prompt
+// Main split action
 $("run").onclick = ()=>{
   const t=$("src").value.trim();
-  if(!t){ $("stat").textContent="Paste some text first."; $("tipbar").style.display="none"; $("challenge").style.display="none"; $("shareRow").style.display="none"; return; }
-  const segs=split(t, +$("sens").value, $("minlen").checked);
+  if(!t){ $("stat").textContent="Paste some text first."; $("tipbar").style.display="none"; $("ctaCard").style.display="none"; $("challenge").style.display="none"; $("shareRow").style.display="none"; $("digestCard").style.display="none"; return; }
+  splitStartTime = performance.now();
+  const segs=splitText(t, +$("sens").value, $("minlen").checked);
+  const elapsed = ((performance.now() - splitStartTime) / 1000).toFixed(2);
   $("out").textContent = render(segs);
-  $("stat").textContent = segs.length+" topic segments from "+sentences(t).length+" sentences.";
-  $("tipbar").style.display="block";
+  const totalSents = sentences(t).length;
+  const totalWords = t.split(/\s+/).length;
+  $("stat").textContent = segs.length+" topic segments from "+totalSents+" sentences ("+totalWords+" words).";
+  $("splitTime").textContent = elapsed+"s";
+  $("ctaCard").style.display="block";
   $("challenge").style.display="block";
   $("shareRow").style.display="flex";
+  $("ctaCard").classList.add("success-pulse");
+  setTimeout(()=>$("ctaCard").classList.remove("success-pulse"), 600);
   buildShareLinks(segs);
 };
+
 $("sendFriend").onclick = (e)=>{
   e.preventDefault();
-  const u = "https://andrwspt.github.io/topicsplit/";
-  const msg = `Hey! I just used TopicSplit to break down an article into clean topic segments — free, offline, no tracking. Perfect if you use Obsidian, Logseq, or Notion for notes. Check it out: ${u}`;
+  const u = "https://andrwspt.github.io/topicsplit/?demo=1";
+  const msg = `Hey! I just used TopicSplit to break down an article into clean topic segments — free, offline, no tracking. Perfect if you use Obsidian, Logseq, or Notion for notes. Try it: ${u}`;
   if(navigator.share){navigator.share({title:"TopicSplit — free text grouper",text:msg});}
   else{navigator.clipboard.writeText(msg);$("stat").textContent="Message copied! Paste it to a friend.";}
 };
@@ -321,6 +423,18 @@ function copyCode(btnId, inputId, feedbackId){
 }
 $("copyEmbed").onclick = ()=>copyCode("copyEmbed", "embedCode", "embedFeedback");
 $("copyBadge").onclick = ()=>copyCode("copyBadge", "badgeCode", "badgeFeedback");
+
+// Auto-demo from URL param ?demo=1
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  if(params.get("demo") === "1" || params.get("demo") === "true"){
+    $("src").value = SAMPLE_TEXT;
+    setTimeout(()=>{
+      $("run").click();
+      $("stat").textContent = "Demo loaded! Adjust the sensitivity slider and split again to see different results.";
+    }, 300);
+  }
+})();
 </script>
 </body>
 </html>
