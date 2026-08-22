@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TopicSplit Pro — batch semantic text splitter for power users, researchers, and writers. Process folders of articles, transcripts, and notes from the command line. Offline, private, pay-what-you-want.">
+<meta property="og:title" content="TopicSplit Pro — Batch Semantic Text Splitter (CLI)">
+<meta property="og:description" content="Process folders of articles, transcripts, and notes from the command line. Same algorithm as the free web version. Offline, private, pay-what-you-want.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://andrwspt.github.io/topicsplit/pro.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TopicSplit Pro — Batch Semantic Text Splitter">
+<meta name="twitter:description" content="Process folders of articles from the command line. Offline, private, pay-what-you-want.">
+<title>TopicSplit Pro — Batch Semantic Text Splitter for Power Users</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "TopicSplit Pro",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "5", "priceCurrency": "USD" },
+  "description": "Batch semantic text splitter — process folders of articles, transcripts, and notes from the command line. Same algorithm as the free web version. Offline, private, pay-what-you-want.",
+  "url": "https://andrwspt.github.io/topicsplit/pro.html",
+  "author": { "@type": "Person", "name": "Andrew", "url": "https://github.com/andrwspt" },
+  "downloadUrl": "https://github.com/andrwspt/topicsplit/tree/main/pro",
+  "softwareVersion": "1.0.0"
+}
+</script>
+<style>
+:root{--bg:#0e1116;--panel:#161b22;--line:#2b3340;--txt:#e6edf3;--muted:#8b98a5;--accent:#4dd0a7;--accent2:#58a6ff;--kofi:#ff5e5b;--paypal:#003087;}
+*{box-sizing:border-box;}
+body{margin:0;font:16px/1.65 system-ui,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt);}
+header{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;}
+header .logo{font-size:20px;font-weight:700;color:var(--accent);}
+header a{color:var(--accent2);text-decoration:none;font-size:14px;}
+.hero{padding:70px 24px 50px;text-align:center;background:linear-gradient(180deg,#131820 0%,var(--bg) 100%);}
+.hero h1{font-size:38px;margin:0 0 14px;line-height:1.25;max-width:700px;margin-left:auto;margin-right:auto;}
+.hero p{color:var(--muted);font-size:17px;margin:0 auto 28px;max-width:620px;}
+.hero-cta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;transition:transform .15s,box-shadow .15s;border:0;cursor:pointer;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3);}
+.btn-primary{background:var(--accent);color:#04221a;}
+.btn-kofi{background:var(--kofi);color:#fff;}
+.btn-paypal{background:var(--paypal);color:#fff;}
+.btn-gh{background:#238636;color:#fff;}
+.features{padding:60px 24px;max-width:1000px;margin:0 auto;}
+.features h2{text-align:center;font-size:26px;margin:0 0 32px;}
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.feature-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px;}
+.feature-card h3{margin:0 0 8px;font-size:16px;color:var(--accent);}
+.feature-card p{margin:0;color:var(--muted);font-size:14px;}
+.how{padding:60px 24px;max-width:800px;margin:0 auto;}
+.how h2{font-size:26px;margin:0 0 24px;text-align:center;}
+.how-step{display:flex;gap:16px;margin-bottom:20px;align-items:flex-start;}
+.how-num{background:var(--accent);color:#04221a;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;}
+.how-step h3{margin:0 0 4px;font-size:16px;}
+.how-step p{margin:0;color:var(--muted);font-size:14px;}
+.code-block{background:#0b0e13;border:1px solid var(--line);border-radius:8px;padding:16px;margin:20px 0;overflow-x:auto;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;color:var(--txt);}
+.code-block .prompt{color:var(--accent);}
+.code-block .output{color:var(--muted);}
+.pricing{padding:60px 24px;text-align:center;background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.pricing h2{font-size:26px;margin:0 0 8px;}
+.pricing>p{color:var(--muted);margin:0  auto 32px;max-width:500px;}
+.price-cards{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;}
+.price-card{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:28px;flex:1;min-width:280px;max-width:340px;text-align:left;position:relative;}
+.price-card.featured{border-color:var(--accent);box-shadow:0 0 24px rgba(77,208,167,.15);}
+.price-card .badge{position:absolute;top:-10px;right:16px;background:var(--accent);color:#04221a;font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px;}
+.price-card h3{margin:0 0 4px;font-size:18px;}
+.price-card .price{font-size:36px;font-weight:700;color:var(--accent);margin:8px 0;}
+.price-card .price small{font-size:14px;color:var(--muted);font-weight:400;}
+.price-card ul{margin:16px 0;padding-left:20px;color:var(--muted);font-size:14px;}
+.price-card li{margin-bottom:6px;}
+.faq{padding:60px 24px;max-width:720px;margin:0 auto;}
+.faq h2{text-align:center;font-size:26px;margin:0 0 28px;}
+.faq-item{margin-bottom:24px;}
+.faq-item h3{margin:0 0 6px;font-size:16px;}
+.faq-item p{margin:0;color:var(--muted);font-size:14px;}
+footer{padding:24px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:13px;}
+footer a{color:var(--accent2);}
+</style>
+</head>
+<body>
+<header>
+  <a href="https://andrwspt.github.io/topicsplit/" class="logo">TopicSplit</a>
+  <nav>
+    <a href="https://andrwspt.github.io/topicsplit/">Free Web Tool</a>
+    <a href="https://github.com/andrwspt/topicsplit" style="margin-left:14px;">GitHub</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>TopicSplit Pro — Batch Split Articles, Transcripts, and Notes</h1>
+  <p>Same algorithm as the free web version. Now for power users: process folders from the command line. Offline, private, pay-what-you-want.</p>
+  <div class="hero-cta">
+    <a href="#pricing" class="btn btn-kofi">☕ Buy on Ko-fi ($5+)</a>
+    <a href="https://paypal.me/andrwspt" target="_blank" rel="noopener" class="btn btn-paypal">💳 Buy on PayPal</a>
+    <a href="https://github.com/andrwspt/topicsplit/tree/main/pro" target="_blank" rel="noopener" class="btn btn-gh">View Source →</a>
+  </div>
+</section>
+
+<section class="features">
+  <h2>Built for people who process text at scale</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>⚡ Batch processing</h3>
+      <p>Split an entire folder of articles in one command. No more pasting one-by-one.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🎯 Same algorithm</h3>
+      <p>Identical semantic splitting as the free web version. Lexical cohesion, not word count.</p>
+    </div>
+    <div class="feature-card">
+      <h3>📁 Clean markdown output</h3>
+      <p>Every input file becomes a separate <code>_topicsplit.md</code> with <code>### Topic N</code> headings.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🔒 100% offline</h3>
+      <p>No server, no API key, no tracking. Runs on your machine. Your data never leaves.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🎚️ Sensitivity control</h3>
+      <p>Adjust from 0.0 (few segments) to 1.0 (many granular segments). Find your sweet spot.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🐍 Python CLI</h3>
+      <p>Install via pip. Pipe text in, split it out. Integrates with any shell script or automation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <h2>Three commands. That's it.</h2>
+  <div class="how-step">
+    <div class="how-num">1</div>
+    <div>
+      <h3>Install</h3>
+      <p>One line, any system with Python 3.9+.</p>
+      <div class="code-block"><span class="prompt">$</span> pip install topicsplit-pro</div>
+    </div>
+  </div>
+  <div class="how-step">
+    <div class="how-num">2</div>
+    <div>
+      <h3>Split a single article</h3>
+      <p>Get clean segmented markdown.</p>
+      <div class="code-block"><span class="prompt">$</span> topicsplit split article.txt<br>
+<span class="output">✓ 5 segments → article_topicsplit.md</span><br><br>
+<span class="prompt">$</span> topicsplit split article.txt -s 0.8 --stdout<br>
+<span class="output">### Topic 1 ...</span></div>
+    </div>
+  </div>
+  <div class="how-step">
+    <div class="how-num">3</div>
+    <div>
+      <h3>Batch process a folder</h3>
+      <p>Split every article in a directory at once.</p>
+      <div class="code-block"><span class="prompt">$</span> topicsplit batch ./research-papers/<br>
+<span class="output">Processing 42 files...<br>
+  ✓ paper1.txt → 4 segments<br>
+  ✓ paper2.txt → 7 segments<br>
+  ...<br><br>
+Done: 42 files, 187 total segments → research-papers_topicsplit/</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <h2>Support the build</h2>
+  <p>TopicSplit Pro is pay-what-you-want. Minimum $5 unlocks the CLI. More = more tools built.</p>
+  <div class="price-cards">
+    <div class="price-card">
+      <h3>Free</h3>
+      <div class="price">$0</div>
+      <p style="color:var(--muted);font-size:14px;">Web-only, single paste</p>
+      <ul>
+        <li>Split text in browser</li>
+        <li>Copy or download markdown</li>
+        <li>Share buttons + embeds</li>
+        <li>MIT licensed</li>
+      </ul>
+      <a href="https://andrwspt.github.io/topicsplit/" class="btn btn-primary" style="width:100%;justify-content:center;">Use Free →</a>
+    </div>
+    <div class="price-card featured">
+      <div class="badge">POWER USER</div>
+      <h3>Pro CLI</h3>
+      <div class="price">$5+ <small>/ once</small></div>
+      <p style="color:var(--muted);font-size:14px;">Everything in free, plus:</p>
+      <ul>
+        <li><strong>Batch folder processing</strong></li>
+        <li><strong>CLI for automation</strong></li>
+        <li>Pipe-friendly (stdin/stdout)</li>
+        <li>Rich terminal output</li>
+        <li>Python 3.9+, cross-platform</li>
+        <li>Supports the project 💚</li>
+      </ul>
+      <a href="https://ko-fi.com/andrwspt" class="btn btn-kofi" style="width:100%;justify-content:center;margin-bottom:8px;">☕ Buy on Ko-fi ($5+)</a>
+      <a href="https://paypal.me/andrwspt" class="btn btn-paypal" style="width:100%;justify-content:center;">💳 Buy on PayPal</a>
+      <p style="text-align:center;font-size:11px;color:var(--muted);margin:12px 0 0 0;">After paying, install via pip — no license key needed. Honor system.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <h2>FAQ</h2>
+  <div class="faq-item">
+    <h3>How does payment work?</h3>
+    <p>There's no license key. Buy on Ko-fi or PayPal, then <code>pip install topicsplit-pro</code>. It's honor system. The tool checks nothing — trust.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What if I pay and don't like it?</h3>
+    <p>Email me (find it on the GitHub repo) — I'll refund. This is a human-scale operation, not a SaaS.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Can I use the CLI output commercially?</h3>
+    <p>Yes. MIT license. Use the output however you want. Pay once, use forever.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Why pay-what-you-want?</h3>
+    <p>I want the tool accessible to students and hobbyists, but I also need to eat. $5 minimum keeps the project alive. If you value it more, pay more. If $5 is a stretch, use the free web version.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Is there a team/enterprise plan?</h3>
+    <p>Not yet. If you need custom integration, custom algorithm tweaks, or priority support, email me. I'm open to it.</p>
+  </div>
+</section>
+
+<footer>
+  <p><strong>TopicSplit Pro</strong> — pay-what-you-want semantic text splitting for power users.</p>
+  <a href="https://andrwspt.github.io/topicsplit/">Free Web Tool</a> · 
+  <a href="https://github.com/andrwspt/topicsplit">GitHub</a> · 
+  <a href="https://ko-fi.com/andrwspt">Ko-fi</a> · 
+  <a href="https://paypal.me/andrwspt">PayPal</a>
+</footer>
+</body>
+</html>
