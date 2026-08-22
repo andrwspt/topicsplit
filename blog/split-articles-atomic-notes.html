@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Stop pasting walls of text into Obsidian, Logseq, or Notion. TopicSplit splits any article into clean topic segments by meaning — free, offline, no tracking. In 5 seconds flat.">
+<meta property="og:title" content="How to Break Down Any Article Into Atomic Notes in 5 Seconds">
+<meta property="og:description" content="Free offline tool. Paste an article, get clean topic segments. Perfect for Obsidian, Logseq, Notion. No server, no API key, no tracking.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://andrwspt.github.io/topicsplit/blog/split-articles-atomic-notes.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Break Down Any Article Into Atomic Notes in 5 Seconds">
+<meta name="twitter:description" content="Free offline tool. Paste an article, get clean topic segments. No server, no tracking.">
+<title>How to Break Down Any Article Into Atomic Notes in 5 Seconds — TopicSplit</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Break Down Any Article Into Atomic Notes in 5 Seconds (Free, Offline)",
+  "description": "Stop pasting walls of text into your notes. TopicSplit splits any article into clean topic segments by meaning — free, offline, no tracking. In 5 seconds flat.",
+  "author": { "@type": "Person", "name": "Andrew", "url": "https://github.com/andrwspt" },
+  "publisher": { "@type": "Organization", "name": "TopicSplit" },
+  "datePublished": "2026-08-22",
+  "dateModified": "2026-08-22",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://andrwspt.github.io/topicsplit/blog/split-articles-atomic-notes.html" },
+  "keywords": ["split text into topics", "atomic notes", "Obsidian", "Logseq", "PKM", "text segmentation", "semantic splitting", "note-taking"]
+}
+</script>
+<style>
+:root{--bg:#0b0e13;--panel:#141922;--line:#232a36;--txt:#e6edf3;--muted:#7d8ba1;--accent:#4dd0a7;--accent2:#58a6ff;--kofi:#ff5e5b;--paypal:#003087;}
+*{box-sizing:border-box;}
+body{margin:0;font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt);}
+header{padding:30px 24px 20px;text-align:center;border-bottom:1px solid var(--line);}
+header h1{margin:0;font-size:28px;font-weight:700;max-width:720px;margin-left:auto;margin-right:auto;line-height:1.3;}
+header p{color:var(--muted);font-size:15px;margin:12px auto 0;max-width:620px;}
+.wrap{max-width:720px;margin:0 auto;padding:30px 24px;}
+article h2{margin:28px 0 10px;font-size:21px;}
+article h3{margin:20px 0 8px;font-size:17px;color:var(--accent);}
+article p{margin:0 0 14px;color:var(--txt);}
+article ul,article ol{margin:0 0 14px;padding-left:24px;}
+article li{margin-bottom:6px;}
+article code{background:var(--panel);padding:2px 6px;border-radius:4px;font-size:14px;}
+.cta-box{background:var(--panel);border:1px solid var(--accent);border-radius:10px;padding:24px;margin:28px 0;text-align:center;}
+.cta-box h3{margin-top:0;color:var(--accent);font-size:18px;}
+.cta-box p{color:var(--muted);margin-bottom:18px;font-size:14px;}
+.cta-box a{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;margin:4px;transition:transform .15s;}
+.cta-box a:hover{transform:scale(1.05);}
+.cta-box .demo{background:var(--accent);color:#04241a;}
+.cta-box .kofi{background:var(--kofi);color:#fff;}
+.cta-box .paypal{background:var(--paypal);color:#fff;}
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+@media(max-width:600px){.comparison{grid-template-columns:1fr;}}
+.comparison>div{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;}
+.comparison h4{margin:0 0 8px;font-size:15px;}
+.comparison .bad h4{color:#f85149;}
+.comparison .good h4{color:var(--accent);}
+.comparison ul{margin:0;padding-left:18px;font-size:14px;color:var(--muted);}
+.back{display:inline-block;margin-bottom:20px;color:var(--accent2);text-decoration:none;font-size:14px;}
+footer{padding:20px 24px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:13px;}
+footer a{color:var(--accent2);}
+.toc{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 20px;margin:20px 0;}
+.toc h4{margin:0 0 10px;font-size:14px;color:var(--accent);}
+.toc ul{margin:0;padding-left:18px;list-style:none;}
+.toc li{margin:4px 0;font-size:13px;}
+.toc a{color:var(--muted);text-decoration:none;}
+.toc a:hover{color:var(--accent2);}
+</style>
+</head>
+<body>
+<header>
+  <h1>How to Break Down Any Article Into Atomic Notes in 5 Seconds</h1>
+  <p>The free, offline workflow that turns walls of text into clean, searchable notes — for Obsidian, Logseq, Notion, and any PKM system.</p>
+</header>
+<div class="wrap">
+<article>
+<a href="https://andrwspt.github.io/topicsplit/" class="back">← Try TopicSplit now (free, no install)</a>
+
+<div class="toc">
+<h4>Contents</h4>
+<ul>
+<li><a href="#problem">The problem with saving articles to your notes</a></li>
+<li><a href="#what">What is semantic text splitting?</a></li>
+<li><a href="#obsidian">How to use TopicSplit with Obsidian</a></li>
+<li><a href="#logseq">How to use TopicSplit with Logseq</a></li>
+<li><a href="#notion">How to use TopicSplit with Notion</a></li>
+<li><a href="#researchers">For researchers: split interview transcripts</a></li>
+<li><a href="#writers">For writers: structure long-form content</a></li>
+<li><a href="#privacy">Why offline matters for note-taking</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</div>
+
+<h2 id="problem">The problem with saving articles to your notes</h2>
+<p>You finish a 3,000-word article. It's gold. You want to save it to <strong>Obsidian</strong>, <strong>Logseq</strong>, or <strong>Notion</strong>.</p>
+<p>So you copy-paste. And now you have a wall of text in your vault. Useless. You'll never find it again.</p>
+<p>The alternative is manual splitting: read through, highlight sections, copy each into separate notes. Takes <strong>10-15 minutes per article</strong>. Nobody does this consistently.</p>
+<p><strong>There's a third way:</strong> paste the article into a tool that finds natural topic boundaries and splits it for you — in 5 seconds.</p>
+
+<h2 id="what">What is semantic text splitting?</h2>
+<p>Most text splitters cut by character count. Every 1,000 characters — chop. This produces garbage: sentences split mid-thought, topics scattered across chunks.</p>
+<p><strong>Semantic splitting</strong> (what TopicSplit does) works differently:</p>
+<ol>
+<li>Split text into sentences</li>
+<li>Measure <strong>lexical cohesion</strong> — how many content words overlap between adjacent sentences</li>
+<li>When overlap drops below a threshold, mark a <strong>topic boundary</strong></li>
+<li>Group sentences between boundaries into segments</li>
+</ol>
+<p>The result: segments that respect the natural structure of the text. Each segment is a coherent topic unit — perfect for an atomic note.</p>
+
+<div class="comparison">
+<div class="bad">
+<h4>Word count splitting</h4>
+<ul>
+<li>Cuts every N words regardless of meaning</li>
+<li>Splits sentences in half</li>
+<li>Scatters topics across chunks</li>
+<li>Useless for notes</li>
+</ul>
+</div>
+<div class="good">
+<h4>Semantic splitting (TopicSplit)</h4>
+<ul>
+<li>Finds natural topic boundaries</li>
+<li>Keeps sentences intact</li>
+<li>Groups related ideas together</li>
+<li>Perfect for atomic notes</li>
+</ul>
+</div>
+</div>
+
+<h2 id="obsidian">How to use TopicSplit with Obsidian</h2>
+<p>Obsidian is a powerful knowledge base that works on local Markdown files. TopicSplit fits naturally:</p>
+<ol>
+<li>Find an article you want to save</li>
+<li>Copy the full text → paste into <a href="https://andrwspt.github.io/topicsplit/" target="_blank" rel="noopener">TopicSplit</a></li>
+<li>Adjust the <strong>Sensitivity</strong> slider (higher = more, shorter segments)</li>
+<li>Click <strong>"Copy markdown"</strong> — output is clean <code>### Topic N</code> headings</li>
+<li>Paste into a new Obsidian note</li>
+<li>Each segment becomes a separate header you can link, tag, and organize</li>
+</ol>
+<p><strong>Pro tip:</strong> For atomic note-taking, split the article, then use Obsidian's "Split note" feature or the Note Refactor plugin to turn each topic into its own note.</p>
+
+<h2 id="logseq">How to use TopicSplit with Logseq</h2>
+<p>Logseq is an open-source, privacy-first knowledge graph. Here's the workflow:</p>
+<ol>
+<li>Copy an article, podcast transcript, or meeting notes</li>
+<li>Paste into TopicSplit and split</li>
+<li>Click <strong>"Download .md"</strong> to save the segmented markdown</li>
+<li>Import into Logseq, or paste directly into your daily journal</li>
+<li>Each <code>### Topic N</code> heading becomes a block reference you can link across your graph</li>
+</ol>
+
+<h2 id="notion">How to use TopicSplit with Notion</h2>
+<p>TopicSplit's output transfers cleanly into Notion:</p>
+<ol>
+<li>Paste any article, interview, or research into TopicSplit</li>
+<li>Split and copy the markdown</li>
+<li>Paste into a Notion page — <code>### Headings</code> auto-convert to toggle headers</li>
+<li>Use the segmented output as a database entry foundation</li>
+</ol>
+
+<h2 id="researchers">For researchers: split interview transcripts</h2>
+<p>Interview transcripts are messy. Multiple topics per page. No clear section breaks. TopicSplit finds the natural transitions:</p>
+<ol>
+<li>Copy a transcript segment (or full interview)</li>
+<li>Paste into TopicSplit</li>
+<li>Set sensitivity to medium-high for granular topic detection</li>
+<li>Export as markdown — each segment becomes a thematic unit you can code and organize</li>
+</ol>
+
+<h2 id="writers">For writers: structure long-form content</h2>
+<p>Writing a long article? Paste your draft into TopicSplit to see where natural topic breaks fall. Use them as section boundaries.</p>
+
+<h2 id="privacy">Why offline matters for note-taking</h2>
+<p>Most "AI summarizer" tools ship your text to a server. Your research, ideas, and private notes get processed by someone else's machine. They can log it. Profile you. Leak it.</p>
+<p>TopicSplit <strong>cannot leak your data</strong> because it never collects it. No server. No API key. No tracking. Everything runs in your browser.</p>
+<p>Disconnect from the internet, reload the page — it still works. That's not a privacy policy. It's an architectural guarantee.</p>
+
+<h2 id="faq">FAQ</h2>
+<h3>Is TopicSplit free?</h3>
+<p>Yes. MIT licensed, no paywall, no premium tier. Forever. If it saved you time, a $1 tip keeps the next tool coming.</p>
+<h3>Does it work in languages other than English?</h3>
+<p>Yes. The algorithm is language-agnostic. It works wherever topic shifts are marked by vocabulary changes.</h3>
+<h3>What's the longest text I can paste?</h3>
+<p>No hard limit. Tested on transcripts up to 50,000 words. Performance depends on your browser.</p>
+<h3>Do I need to install anything?</h3>
+<p>No. Open <a href="https://andrwspt.github.io/topicsplit/" target="_blank" rel="noopener">the live demo</a> in any browser. Or download <code>index.html</code> and open it locally — works 100% offline.</p>
+<h3>Is there a CLI / batch version?</h3>
+<p>Yes — <a href="https://github.com/andrwspt/topicsplit/tree/main/pro" target="_blank" rel="noopener">TopicSplit Pro</a> is a Python CLI for batch-processing folders of articles. Pay-what-you-want (min $5).</p>
+
+<div class="cta-box">
+<h3>Try TopicSplit now — free, offline, no install</h3>
+<p>Paste any article. Get clean topic segments in 5 seconds.</p>
+<a href="https://andrwspt.github.io/topicsplit/?demo=1" target="_blank" rel="noopener" class="demo">🚀 Launch TopicSplit</a>
+</div>
+
+<div class="cta-box">
+<h3>Love free, private tools? A $1 tip keeps them coming.</h3>
+<p>Every dollar goes back into building more offline, tracking-free tools.</p>
+<a href="https://ko-fi.com/andrwspt" target="_blank" rel="noopener" class="kofi">☕ Tip $1 on Ko-fi</a>
+<a href="https://paypal.me/andrwspt" target="_blank" rel="noopener" class="paypal">💳 Tip $1 on PayPal</a>
+</div>
+
+</article>
+</div>
+<footer>
+  <a href="https://andrwspt.github.io/">Free Tools by Andrew</a> · 
+  <a href="https://github.com/andrwspt/topicsplit">GitHub</a> · 
+  <a href="https://ko-fi.com/andrwspt">Ko-fi</a> · 
+  <a href="https://paypal.me/andrwspt">PayPal</a>
+</footer>
+</body>
+</html>
