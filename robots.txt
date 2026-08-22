@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://andrwspt.github.io/topicsplit/sitemap.xml
